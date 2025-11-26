@@ -18,63 +18,78 @@ export default function Header() {
   const [activeLang, setActiveLang] = useState("FR");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
-
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-200">
+      
       <div className="w-full h-24 flex items-center justify-between px-6 md:px-12 xl:px-[7.5rem]">
-
+        
         {/* --- LOGO --- */}
-        <Link
-          href="/"
+        <Link 
+          href="/" 
           className="relative block w-32 md:w-40 shrink-0"
           onClick={() => setActiveLink("")}
         >
-          <Image
-            src="/images/paturel-logo-dark-blue.svg"
-            alt="Paturel Notaires"
-            width={162}
-            height={115}
-            className="w-full h-auto object-contain object-left"
-            priority
-          />
+           <Image 
+             src="/images/paturel-logo-dark-blue.svg" 
+             alt="Paturel Notaires" 
+             width={162} 
+             height={115} 
+             className="w-full h-auto object-contain object-left"
+             priority 
+           />
         </Link>
 
-        {/* 
-            --- DESKTOP NAV --- 
-            Changement majeur ici :
-            - items-baseline : Aligne le texte "FR" et "ÉTUDE" exactement sur la même ligne de base.
-            - gap-[3rem] : Espace entre le bloc langue et le bloc menu (ajustable).
-            - pt-[1.625rem] : Appliqué au parent pour descendre tout le monde ensemble.
-        */}
+        {/* --- DESKTOP NAV --- */}
+        {/* Le parent reste en items-baseline pour aligner le BAS du bloc langue avec le BAS du bloc menu */}
         <nav className="hidden md:flex items-baseline gap-12 pt-[1.625rem]">
-
+          
           {/* --- BLOC LANGUES --- */}
-          <div className="flex items-baseline gap-2 text-sm tracking-[0.175rem]">
-
+          {/* 
+             CORRECTION ICI : 
+             On passe de 'items-baseline' à 'items-center'.
+             Cela force la barre '|' à se centrer verticalement par rapport aux boutons FR/EN.
+          */}
+          <div className="flex items-center gap-2 text-sm tracking-[0.175rem]">
+            
             {/* BOUTON FR */}
             <button
               onClick={() => setActiveLang("FR")}
-              // Ajout de 'cursor-pointer' ici
-              className={`cursor-pointer flex flex-col items-center transition-colors duration-200 ${activeLang === "FR" ? "text-[#352397]" : "text-primary hover:text-[#352397]"
-                }`}
+              className="cursor-pointer relative group flex flex-col items-center"
             >
-              <span className={activeLang === "FR" ? "font-bold" : "font-normal"}>FR</span>
               <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">FR</span>
+              
+              {/* Normal */}
+              <span className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${activeLang === "FR" ? "opacity-0" : "opacity-100"}`}>
+                FR
+              </span>
+
+              {/* Gras */}
+              <span className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${activeLang === "FR" ? "opacity-100" : "opacity-0"}`}>
+                FR
+              </span>
             </button>
 
             {/* SÉPARATEUR */}
-            <span className="text-primary/30 font-normal">|</span>
+            {/* J'ai ajouté 'relative top-[1px]' pour un micro-ajustement optique si nécessaire, sinon retire-le */}
+            <span className="text-primary/30 font- relative top-[-0.5px]">|</span>
 
             {/* BOUTON EN */}
             <button
               onClick={() => setActiveLang("EN")}
-              // Ajout de 'cursor-pointer' ici aussi
-              className={`cursor-pointer flex flex-col items-center transition-colors duration-200 ${activeLang === "EN" ? "text-[#352397]" : "text-primary hover:text-[#352397]"
-                }`}
+              className="cursor-pointer relative group flex flex-col items-center"
             >
-              <span className={activeLang === "EN" ? "font-bold" : "font-normal"}>EN</span>
               <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">EN</span>
-            </button>
+              
+              {/* Normal */}
+              <span className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${activeLang === "EN" ? "opacity-0" : "opacity-100"}`}>
+                EN
+              </span>
 
+              {/* Gras */}
+              <span className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${activeLang === "EN" ? "opacity-100" : "opacity-0"}`}>
+                EN
+              </span>
+            </button>
+            
           </div>
 
           {/* --- BLOC LIENS --- */}
@@ -84,24 +99,39 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setActiveLink(link.name)}
-                  className={`
-                    block text-sm uppercase tracking-[0.175rem] transition-colors duration-200 text-center
-                    ${activeLink === link.name
-                      ? "font-bold text-[#352397]"
-                      : "font-normal text-primary hover:text-[#352397]"
-                    }
-                  `}
+                  className="block text-sm uppercase tracking-[0.175rem] text-center relative"
                 >
-                  {/* Astuce Anti-Saut */}
-                  <span className={activeLink === link.name ? "font-bold" : "font-normal"}>
+                   {/* Fantôme taille */}
+                   <span className="invisible font-bold h-0 overflow-hidden block" aria-hidden="true">
                     {link.name}
-                  </span>
-                  <span className="block font-bold h-0 overflow-hidden invisible" aria-hidden="true">
+                   </span>
+
+                   {/* Normal */}
+                   <span 
+                      className={`
+                        absolute inset-0 flex items-center justify-center
+                        font-normal text-primary group-hover:text-[#352397]
+                        transition-opacity duration-300 ease-in-out
+                        ${activeLink === link.name ? "opacity-0" : "opacity-100"}
+                      `}
+                   >
                     {link.name}
-                  </span>
+                   </span>
+
+                   {/* Gras */}
+                   <span 
+                      className={`
+                         flex items-center justify-center
+                         font-bold text-[#352397]
+                         transition-opacity duration-300 ease-in-out
+                         ${activeLink === link.name ? "opacity-100" : "opacity-0"}
+                      `}
+                   >
+                    {link.name}
+                   </span>
                 </Link>
 
-                {/* Soulignement (Positionné en absolute par rapport au li, n'affecte pas l'alignement baseline du texte) */}
+                {/* Soulignement */}
                 {activeLink === link.name && (
                   <motion.div
                     layoutId="underline"
@@ -146,24 +176,25 @@ export default function Header() {
                   setActiveLink(link.name);
                   setIsOpen(false);
                 }}
-                className={`text-sm tracking-[0.175rem] uppercase transition-colors ${activeLink === link.name
-                    ? "font-bold text-[#352397]"
+                className={`text-sm tracking-[0.175rem] uppercase transition-colors ${
+                  activeLink === link.name 
+                    ? "font-bold text-[#352397]" 
                     : "font-normal text-primary"
-                  }`}
+                }`}
               >
                 {link.name}
               </Link>
             ))}
-
+            
             <div className="flex gap-4 pt-4 border-t border-gray-100 w-16 justify-center text-sm tracking-widest">
-              <button
+              <button 
                 onClick={() => setActiveLang("FR")}
                 className={activeLang === "FR" ? "font-bold text-[#352397]" : "text-primary"}
               >
                 FR
               </button>
               <span className="text-primary/30">|</span>
-              <button
+              <button 
                 onClick={() => setActiveLang("EN")}
                 className={activeLang === "EN" ? "font-bold text-[#352397]" : "text-primary"}
               >
