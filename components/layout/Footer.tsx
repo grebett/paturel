@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1E1343] text-white pt-24 pb-8">
+    <footer className="bg-[#1E1343] text-white md:pt-24 pb-8">
       
       {/* Container global aligné (7.5rem) */}
       <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">

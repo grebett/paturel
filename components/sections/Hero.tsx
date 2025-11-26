@@ -33,7 +33,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif md:text-[2.3rem] xl:text-[3.5rem] italic font-semibold md:leading-12.5 xl:leading-18 tracking-[0.0275rem] text-terracotta max-w-4xl [font-feature-settings:'calt','liga']"
+          className="font-serif mt-[-100px] md:mt[0] text-[2.3rem] md:text-[2.3rem] xl:text-[3.5rem] italic font-semibold md:leading-12.5 xl:leading-18 tracking-[0.0275rem] text-terracotta max-w-4xl [font-feature-settings:'calt','liga']"
         >
           Notre ambition :<br />
           être les partenaires<br />
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 md:mt-16 w-28 md:w-28 xl:w-40"
+          className="mt-12 md:mt-16 w-40 md:w-28 xl:w-40"
         >
           <Image
             src="/images/stamp.svg"
