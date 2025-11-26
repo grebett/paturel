@@ -1,22 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* On définit nos couleurs ici */
-  --color-primary: #11113A; /* Bleu nuit */
+  /* COULEURS */
+  --color-primary: #251B5E; /* Nouveau Bleu nuit */
+  --color-indigo: #352397;  /* Bleu indigo (Surbrillance) */
   --color-cream: #FAF7F4;   /* Beige clair */
-  --color-accent: #4D4D85;  /* Violet titres */
   --color-body: #4A4A4A;    /* Gris texte */
+  --color-paper: #FFFBFA;   /* Beige fond */
+  --color-white: #FFFFFF;   /* Blanc */
+  
+  /* On garde tes couleurs "Cuivre" pour les titres si besoin */
+  --color-gold: #D4A373;    
 
-  /* On lie les fonts configurées dans layout.tsx */
+  /* FONTS */
   --font-serif: var(--font-serif); 
   --font-sans: var(--font-sans);
+  
+  /* ALIGNEMENT */
+  /* On crée une variable pour ce padding spécifique de 7.5rem (120px) */
+  --spacing-section-px: 7.5rem; 
 }
 
 /* Styles globaux */
 body {
-  background-color: var(--color-white);
+  background-color: var(--color-paper);
   color: var(--color-body);
+  /* Pour éviter le scroll horizontal si une animation dépasse */
+  overflow-x: hidden; 
 }
-
-/* Petit fix pour l'alerte VS Code */
-@source "../**";

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"; // Import nécessaire pour le logo et les icônes
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,51 +15,97 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("ÉTUDE");
+  const [activeLang, setActiveLang] = useState("FR");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-        
-        {/* --- LOGO SVG --- */}
-        <Link href="/" className="relative block w-32 md:w-40">
-           {/* Ajuste width/height selon le ratio réel de ton SVG */}
-           <Image 
-             src="/images/paturel-logo-dark-blue.svg" 
-             alt="Paturel Notaires" 
-             width={160} 
-             height={60} 
-             className="w-full h-auto object-contain"
-             priority // Chargement prioritaire pour le logo (LCP)
-           />
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+
+      <div className="w-full h-24 flex items-center justify-between px-6 md:px-12 xl:px-[7.5rem]">
+
+        {/* --- LOGO --- */}
+        <Link
+          href="/"
+          className="relative block w-32 md:w-40 shrink-0"
+          onClick={() => setActiveLink("")}
+        >
+          <Image
+            src="/images/paturel-logo-dark-blue.svg"
+            alt="Paturel Notaires"
+            width={162}
+            height={115}
+            className="w-full h-auto object-contain object-left"
+            priority
+          />
         </Link>
 
-        {/* --- DESKTOP NAV --- */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-          {/* Langue Switcher */}
-          <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-primary">
-            <span className="cursor-pointer hover:text-accent transition-colors">FR</span>
-            <span className="text-gray-300">|</span>
-            <span className="cursor-pointer text-gray-400 hover:text-accent transition-colors">EN</span>
+        {/* 
+            --- DESKTOP NAV --- 
+            Changement majeur ici :
+            - items-baseline : Aligne le texte "FR" et "ÉTUDE" exactement sur la même ligne de base.
+            - gap-[3rem] : Espace entre le bloc langue et le bloc menu (ajustable).
+            - pt-[1.625rem] : Appliqué au parent pour descendre tout le monde ensemble.
+        */}
+        <nav className="hidden md:flex items-baseline gap-12 pt-[1.625rem]">
+
+          {/* --- BLOC LANGUES --- */}
+          <div className="flex items-baseline gap-2 text-sm tracking-[0.175rem]">
+
+            {/* BOUTON FR */}
+            <button
+              onClick={() => setActiveLang("FR")}
+              // Ajout de 'cursor-pointer' ici
+              className={`cursor-pointer flex flex-col items-center transition-colors duration-200 ${activeLang === "FR" ? "text-[#352397]" : "text-primary hover:text-[#352397]"
+                }`}
+            >
+              <span className={activeLang === "FR" ? "font-bold" : "font-normal"}>FR</span>
+              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">FR</span>
+            </button>
+
+            {/* SÉPARATEUR */}
+            <span className="text-primary/30 font-normal">|</span>
+
+            {/* BOUTON EN */}
+            <button
+              onClick={() => setActiveLang("EN")}
+              // Ajout de 'cursor-pointer' ici aussi
+              className={`cursor-pointer flex flex-col items-center transition-colors duration-200 ${activeLang === "EN" ? "text-[#352397]" : "text-primary hover:text-[#352397]"
+                }`}
+            >
+              <span className={activeLang === "EN" ? "font-bold" : "font-normal"}>EN</span>
+              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">EN</span>
+            </button>
+
           </div>
 
-          {/* Menu Links */}
-          <ul className="flex items-center gap-8 lg:gap-10">
+          {/* --- BLOC LIENS --- */}
+          <ul className="flex items-baseline gap-[1.875rem]">
             {navLinks.map((link) => (
-              <li key={link.name} className="relative">
+              <li key={link.name} className="relative group">
                 <Link
                   href={link.href}
                   onClick={() => setActiveLink(link.name)}
-                  className={`text-xs font-bold tracking-[0.15em] transition-colors hover:text-accent ${
-                    activeLink === link.name ? "text-primary" : "text-gray-500"
-                  }`}
+                  className={`
+                    block text-sm uppercase tracking-[0.175rem] transition-colors duration-200 text-center
+                    ${activeLink === link.name
+                      ? "font-bold text-[#352397]"
+                      : "font-normal text-primary hover:text-[#352397]"
+                    }
+                  `}
                 >
-                  {link.name}
+                  {/* Astuce Anti-Saut */}
+                  <span className={activeLink === link.name ? "font-bold" : "font-normal"}>
+                    {link.name}
+                  </span>
+                  <span className="block font-bold h-0 overflow-hidden invisible" aria-hidden="true">
+                    {link.name}
+                  </span>
                 </Link>
-                {/* Soulignement animé */}
+
+                {/* Soulignement (Positionné en absolute par rapport au li, n'affecte pas l'alignement baseline du texte) */}
                 {activeLink === link.name && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute -bottom-2 left-0 right-0 h-[2px] bg-accent"
+                    className="absolute -bottom-2 left-0 right-0 h-[4px] bg-[#352397]"
                   />
                 )}
               </li>
@@ -67,7 +113,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* --- MOBILE BURGER (SVG CUSTOM) --- */}
+        {/* --- MOBILE BURGER --- */}
         <button
           className="md:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -75,7 +121,7 @@ export default function Header() {
         >
           <Image
             src={isOpen ? "/images/cross.svg" : "/images/burger.svg"}
-            alt={isOpen ? "Fermer menu" : "Ouvrir menu"}
+            alt="Menu"
             width={24}
             height={24}
             className="w-6 h-6 object-contain"
@@ -83,29 +129,46 @@ export default function Header() {
         </button>
       </div>
 
-      {/* --- MOBILE MENU OVERLAY --- */}
+      {/* --- MOBILE MENU --- */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-24 left-0 w-full bg-white border-b border-gray-100 shadow-xl md:hidden p-8 flex flex-col items-center gap-6 z-40"
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-24 left-0 w-full bg-white border-b border-gray-100 shadow-xl md:hidden p-8 flex flex-col items-center gap-8 z-40"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-sm font-bold tracking-widest text-primary hover:text-accent"
+                onClick={() => {
+                  setActiveLink(link.name);
+                  setIsOpen(false);
+                }}
+                className={`text-sm tracking-[0.175rem] uppercase transition-colors ${activeLink === link.name
+                    ? "font-bold text-[#352397]"
+                    : "font-normal text-primary"
+                  }`}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="flex gap-4 mt-4 pt-4 border-t w-16 justify-center border-gray-200 text-xs font-bold">
-              <span>FR</span>
-              <span className="text-gray-300">|</span>
-              <span className="text-gray-400">EN</span>
+
+            <div className="flex gap-4 pt-4 border-t border-gray-100 w-16 justify-center text-sm tracking-widest">
+              <button
+                onClick={() => setActiveLang("FR")}
+                className={activeLang === "FR" ? "font-bold text-[#352397]" : "text-primary"}
+              >
+                FR
+              </button>
+              <span className="text-primary/30">|</span>
+              <button
+                onClick={() => setActiveLang("EN")}
+                className={activeLang === "EN" ? "font-bold text-[#352397]" : "text-primary"}
+              >
+                EN
+              </button>
             </div>
           </motion.div>
         )}

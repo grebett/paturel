@@ -5,42 +5,48 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="etude" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    // Fond couleur Papier
+    <section id="etude" className="py-20 md:py-32 bg-paper">
+      
+      {/* Container aligné sur 7.5rem */}
+      <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
         
         {/* --- TITRE --- */}
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-serif text-5xl md:text-6xl text-[#D4A373] italic mb-12 md:mb-20"
+          // Utilisation de la variable text-gold
+          className="font-serif text-5xl md:text-6xl text-gold italic mb-12 md:mb-20"
         >
           L&apos;étude
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           
-          {/* --- COLONNE GAUCHE (Intro Bleue) --- */}
+          {/* --- COLONNE GAUCHE (Intro) --- */}
           <div className="lg:col-span-5">
             <motion.div
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.2 }}
+               // Intro en Bleu Nuit (primary)
+               className="text-xl md:text-2xl text-primary font-bold leading-relaxed space-y-8"
             >
-              <p className="text-xl md:text-2xl text-primary font-bold leading-relaxed mb-8">
+              <p>
                 L’office notarial Paturel Notaires accompagne ses clients avec rigueur, loyauté et disponibilité.
               </p>
-              <p className="text-xl md:text-2xl text-primary font-bold leading-relaxed mb-8">
+              <p>
                 Fondé sur des valeurs d’excellence et de confiance, nous plaçons la qualité du conseil au cœur de notre pratique.
               </p>
-              <p className="text-xl md:text-2xl text-primary font-bold leading-relaxed">
+              <p>
                 Notre ambition : être de véritables partenaires, engagés dans la réussite de chaque projet.
               </p>
             </motion.div>
           </div>
 
-          {/* --- COLONNE DROITE (Texte standard) --- */}
+          {/* --- COLONNE DROITE (Texte Corps) --- */}
           <div className="lg:col-span-7 text-body text-base md:text-lg leading-relaxed space-y-6 text-justify md:text-left">
              <motion.div
                initial={{ opacity: 0 }}
@@ -67,16 +73,16 @@ export default function About() {
           </div>
         </div>
 
-        {/* --- IMAGE BAS DE SECTION --- */}
+        {/* --- IMAGE --- */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 md:mt-24 w-full h-[300px] md:h-[500px] relative overflow-hidden"
+          className="mt-16 md:mt-24 w-full h-[300px] md:h-[600px] relative overflow-hidden"
         >
            <Image
-             src="/images/office.png" // Ton image de bureau
+             src="/images/office.png"
              alt="Intérieur de l'étude"
              fill
              className="object-cover"
