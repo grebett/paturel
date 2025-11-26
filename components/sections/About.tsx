@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    // Fond couleur Papier
-    <section id="etude" className="py-20 md:py-32 bg-paper">
+    <section id="etude" className="py-20 md:py-22 bg-paper">
       
-      {/* Container aligné sur 7.5rem */}
       <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
         
         {/* --- TITRE --- */}
@@ -16,24 +14,21 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          // Utilisation de la variable text-gold
-          className="font-serif text-5xl md:text-6xl text-gold italic mb-12 md:mb-20"
+          className="font-serif text-5xl md:text-[4rem] text-terracotta font-bold italic mb-16 md:mb-20 leading-none"
         >
-          L&apos;étude
+          L’étude
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="mx-auto max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-12 lg:gap-x-24 items-start text-justify">
           
-          {/* --- COLONNE GAUCHE (Intro) --- */}
-          <div className="lg:col-span-5">
-            <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.2 }}
-               // Intro en Bleu Nuit (primary)
-               className="text-xl md:text-2xl text-primary font-bold leading-relaxed space-y-8"
-            >
+          {/* --- COLONNE 1 --- */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-8"
+          >
+            <div className="text-lg text-left md:text-xl text-indigo font-medium space-y-6">
               <p>
                 L’office notarial Paturel Notaires accompagne ses clients avec rigueur, loyauté et disponibilité.
               </p>
@@ -43,51 +38,63 @@ export default function About() {
               <p>
                 Notre ambition : être de véritables partenaires, engagés dans la réussite de chaque projet.
               </p>
-            </motion.div>
-          </div>
+            </div>
 
-          {/* --- COLONNE DROITE (Texte Corps) --- */}
-          <div className="lg:col-span-7 text-body text-base md:text-lg leading-relaxed space-y-6 text-justify md:text-left">
-             <motion.div
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.4 }}
-            >
-              <p>
+            <div className="text-black text-left md:text-[0.95rem] space-y-6">
+              <p className="font-semibold">
                 L’office notarial Paturel Notaires est né d’une vision commune du métier, fondée sur des valeurs fortes : qualité, rigueur, loyauté et grande disponibilité.
               </p>
-              <p>
+              <p className="font-light">
                 Nous mettons ces principes au service d’un objectif unique : offrir à nos clients un accompagnement d’excellence, en cohérence avec nos compétences, nos savoir-faire et notre expérience en immobilier.
               </p>
               <p>
-                Notre structure dédiée à l’immobilier nous permet de répondre au mieux aux défis d’un environnement en constante évolution, en nous appuyant notamment sur les nouvelles technologies, en développant une approche résolument internationale.
+                Notre structure dédiée à l’immobilier nous permet de
               </p>
-              <p>
-                Notre pratique s’appuie sur un accompagnement à chaque étape des projets de nos clients, en anticipant leurs besoins et leurs contraintes et en proposant des conseils stratégiques.
-              </p>
-              <p>
-                De notre expérience, développée aux côtés d’acteurs institutionnels et plus particulièrement de fonds d’investissement étrangers de l’immobilier tertiaire, nous avons développé des standards élevés et une culture de la rigueur aux côtés de nos clients.
-              </p>
-            </motion.div>
-          </div>
-        </div>
+            </div>
+          </motion.div>
 
-        {/* --- IMAGE --- */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 md:mt-24 w-full h-[300px] md:h-[600px] relative overflow-hidden"
-        >
-           <Image
-             src="/images/office.png"
-             alt="Intérieur de l'étude"
-             fill
-             className="object-cover"
-           />
-        </motion.div>
+
+          {/* --- COLONNE 2 --- */}
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.2 }}
+             className="text-black font-light text-left text-sm md:text-[0.95rem] space-y-6 leading-[1.275]"
+          >
+            <p>
+              répondre au mieux aux défis d’un environnement en constante évolution, en nous appuyant notamment sur les nouvelles technologies, en développant une approche résolument internationale et en travaillant en étroite collaboration avec un réseau d’experts partenaires.
+            </p>
+            <p>
+              Notre pratique s’appuie sur un accompagnement à chaque étape des projets de nos clients, en anticipant leurs besoins et leurs contraintes et en proposant des conseils stratégiques. Qu’il s’agisse de constituer et actualiser une data-room, préparer une Vendor Due Diligence dans une démarche ready to sell, de sécuriser la cession d’un actif immobilier ou d’une société, de préparer la signature d’un financement, notre approche vise toujours à optimiser la réussite des opérations au meilleur coût.
+            </p>
+            <p>
+              De notre expérience, développée aux côtés d’acteurs institutionnels et plus particulièrement de fonds d’investissement étrangers de l’immobilier tertiaire, nous avons développé des standards élevés et une culture de la rigueur aux côtés de nos clients.
+            </p>
+            <p>
+              Nous mettons également notre savoir-faire au service des projets personnels et patrimoniaux de nos clients.
+            </p>
+            <p>
+              Notre ambition est claire : construire une relation de partenariat durable, fondée sur la confiance, la proximité et l’excellence.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-8 md:mt-6 w-full h-[600px] relative overflow-hidden col-span-1 lg:col-span-2"
+          >
+             <Image
+               src="/images/office.png"
+               alt="Intérieur de l'étude"
+               fill
+               className="object-cover"
+             />
+          </motion.div>
+
+        </div>
 
       </div>
     </section>

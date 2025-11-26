@@ -1,9 +1,19 @@
-<svg width="47" height="45" viewBox="0 0 47 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_124_10218" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="6" y="5" width="35" height="35">
-<path d="M39.7207 5.91016V39.0605H6.57031V5.91016H39.7207Z" fill="white" stroke="white"/>
-</mask>
-<g mask="url(#mask0_124_10218)">
-<path d="M23.1502 39.1803C32.3734 39.1803 39.8502 31.7034 39.8502 22.4803C39.8502 13.2571 32.3734 5.78027 23.1502 5.78027C13.927 5.78027 6.4502 13.2571 6.4502 22.4803C6.4502 31.7034 13.927 39.1803 23.1502 39.1803Z" stroke="white" stroke-width="0.75"/>
-</g>
-<path d="M15.8896 27.4899L23.0996 16.8599L30.4096 27.4899" stroke="white" stroke-width="2.43" stroke-miterlimit="10" stroke-linecap="round"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+    <g id="Artboard1" transform="matrix(0.965541,0,0,0.960153,-5.39137,-4.62568)">
+        <rect x="5.584" y="4.818" width="35.371" height="35.858" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="5.584" y="4.818" width="35.371" height="35.858"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1.03569,0,0,1.0415,-0.588853,-0.653893)">
+                <g transform="matrix(1,-0,-0,1,5.95993,5.25351)">
+                </g>
+            </g>
+            <g transform="matrix(1.03569,0,0,1.0415,-0.588853,-0.653893)">
+                <path d="M15.89,27.49L23.1,16.86L30.41,27.49" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:2.43px;"/>
+            </g>
+        </g>
+    </g>
 </svg>

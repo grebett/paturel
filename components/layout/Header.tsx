@@ -18,14 +18,14 @@ export default function Header() {
   const [activeLang, setActiveLang] = useState("FR");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper backdrop-blur-sm transition-all duration-200 border-b border-b-primary/10">
       
-      <div className="w-full h-24 flex items-center justify-between px-6 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full h-32 flex items-center justify-between px-6 md:px-12 xl:px-[7.5rem]">
         
         {/* --- LOGO --- */}
         <Link 
           href="/" 
-          className="relative block w-32 md:w-40 shrink-0"
+          className="relative block w-32 md:w-26 shrink-0"
           onClick={() => setActiveLink("")}
         >
            <Image 
@@ -37,7 +37,6 @@ export default function Header() {
              priority 
            />
         </Link>
-
         {/* --- DESKTOP NAV --- */}
         {/* Le parent reste en items-baseline pour aligner le BAS du bloc langue avec le BAS du bloc menu */}
         <nav className="hidden md:flex items-baseline gap-12 pt-[1.625rem]">
@@ -69,8 +68,7 @@ export default function Header() {
             </button>
 
             {/* SÉPARATEUR */}
-            {/* J'ai ajouté 'relative top-[1px]' pour un micro-ajustement optique si nécessaire, sinon retire-le */}
-            <span className="text-primary/30 font- relative top-[-0.5px]">|</span>
+            <span className="text-indigo relative top-[-0.5px]">|</span>
 
             {/* BOUTON EN */}
             <button

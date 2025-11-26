@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Les données textuelles (copiées/collées de ta maquette)
 const expertiseItems = [
   {
     id: 1,
@@ -34,8 +33,10 @@ const expertiseItems = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="py-20 md:py-32 bg-cream">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="expertise" className="bg-peau py-20 md:py-32">
+      
+      {/* Container global aligné gauche (pour le titre) */}
+      <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
         
         {/* --- TITRE SECTION --- */}
         <motion.div 
@@ -44,15 +45,21 @@ export default function Expertise() {
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-primary italic mb-6">
+          <h2 className="font-serif text-5xl md:text-[4rem] text-primary italic mb-8 leading-none font-bold">
             Notre expertise
           </h2>
-          {/* Ligne séparatrice sous le titre */}
-          <div className="w-full h-[1px] bg-primary/20" />
         </motion.div>
 
-        {/* --- LISTE DES EXPERTISES --- */}
-        <div className="flex flex-col">
+        {/* 
+            --- CONTENU CENTRÉ --- 
+            Même conteneur max-w-4xl que About.tsx
+        */}
+        <div className="mx-auto max-w-4xl flex flex-col">
+          
+          {/* Ligne de séparation du haut */}
+          <div className="w-full h-[1px] bg-primary" />
+
+          {/* Liste */}
           {expertiseItems.map((item, index) => (
             <motion.div 
               key={item.id}
@@ -60,43 +67,52 @@ export default function Expertise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group"
+              className="group border-b border-primary last:border-none"
             >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16 py-12 md:py-16 items-start">
+              
+              {/* 
+                 STRUCTURE DE GRILLE IDENTIQUE À ABOUT.TSX
+                 - grid-cols-2 : Sépare en deux colonnes égales
+                 - gap-x-12 lg:gap-x-24 : Même espacement que About
+                 - items-center : Alignement vertical centré
+              */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 lg:gap-x-24 py-12 md:py-16 items-center">
                 
-                {/* 1. Le Cercle avec Numéro */}
-                <div className="shrink-0 relative w-24 h-24 flex items-center justify-center">
-                  {/* Le cercle SVG qui tourne doucement au survol (optionnel) */}
-                  <div className="absolute inset-0 transition-transform duration-700 group-hover:rotate-90">
-                     <Image 
-                       src="/images/number-external-circle.svg" 
-                       alt="" 
-                       fill 
-                       className="object-contain"
-                     />
+                {/* --- COLONNE GAUCHE : CERCLE + TITRE --- */}
+                <div className="flex items-center gap-6 md:gap-8">
+                  
+                  {/* Le Cercle */}
+                  <div className="shrink-0 relative w-16 h-16 md:w-16 md:h-16 flex items-center justify-center">
+                    <div className="absolute inset-0 transition-transform duration-700 group-hover:rotate-90">
+                       <Image 
+                         src="/images/number-external-circle.svg" 
+                         alt="" 
+                         fill 
+                         className="object-contain"
+                       />
+                    </div>
+                    <span className="relative z-10 font-serif text-3xl md:text-4xl text-indigo font-bold -mt-3.25">
+                      {item.id}
+                    </span>
                   </div>
-                  {/* Le Numéro centré */}
-                  <span className="relative z-10 font-serif text-4xl text-primary font-bold pt-1">
-                    {item.id}
-                  </span>
-                </div>
 
-                {/* 2. Le Contenu Texte */}
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 w-full">
-                  {/* Titre de l'item */}
-                  <h3 className="font-serif text-3xl md:text-4xl text-primary italic">
+                  {/* Le Titre */}
+                  <h3 className="font-serif text-[1.8125rem] text-indigo italic font-bold leading-normal tracking-[0.01813rem]">
                     {item.title}
                   </h3>
-                  
-                  {/* Description */}
-                  <p className="text-body text-base leading-relaxed text-justify md:text-left">
+
+                </div>
+
+
+                {/* --- COLONNE DROITE : DESCRIPTION --- */}
+                {/* Cette div aura maintenant exactement la même largeur que la colonne de droite de About */}
+                <div className="w-full">
+                  <p className="text-black font-light text-sm md:text-[0.95rem] leading-[1.6] text-left whitespace-pre-line">
                     {item.desc}
                   </p>
                 </div>
-              </div>
 
-              {/* Ligne séparatrice entre les items (sauf le dernier si tu veux, ici je la mets partout pour uniformiser) */}
-              <div className="w-full h-[1px] bg-primary/20" />
+              </div>
             </motion.div>
           ))}
         </div>

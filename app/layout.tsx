@@ -9,6 +9,8 @@ const playfair = Playfair_Display({
   subsets: ["latin"], 
   variable: '--font-serif',
   display: 'swap',
+  style: ['normal', 'italic'], 
+  weight: 'variable', 
 });
 
 const figtree = Figtree({ 
@@ -16,6 +18,7 @@ const figtree = Figtree({
   variable: '--font-sans',
   display: 'swap',
 });
+
 
 export const metadata: Metadata = {
   title: "Paturel Notaire",
@@ -28,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
+    <html lang="fr" className="scroll-smooth scroll-pt-28">
       <body className={`${playfair.variable} ${figtree.variable} font-sans antialiased bg-white text-body`}>
         <Header />
         

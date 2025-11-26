@@ -8,6 +8,8 @@
   --color-body: #4A4A4A;    /* Gris texte */
   --color-paper: #FFFBFA;   /* Beige fond */
   --color-white: #FFFFFF;   /* Blanc */
+  --color-terracotta: #CC978A; /* Terracotta (Surbrillance) */
+  --color-peau: #FBF2EE;    /* Beige peau */
   
   /* On garde tes couleurs "Cuivre" pour les titres si besoin */
   --color-gold: #D4A373;    

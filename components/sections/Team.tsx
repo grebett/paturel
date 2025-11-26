@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaLinkedinIn } from "react-icons/fa"; // Assure-toi d'avoir installé react-icons
+import { FaLinkedinIn } from "react-icons/fa";
 
 const teamMembers = [
   {
@@ -14,7 +14,7 @@ const teamMembers = [
       "Marc conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
     ],
     language: "Marc travaille aussi bien en anglais qu’en français.",
-    linkedin: "https://www.linkedin.com" // Ajoute le vrai lien plus tard
+    linkedin: "https://www.linkedin.com"
   },
   {
     name: "Florence Pignal",
@@ -29,23 +29,26 @@ const teamMembers = [
 
 export default function Team() {
   return (
-    <section id="equipe" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="equipe" className="bg-paper py-20 md:py-32">
+      
+      {/* Container global aligné gauche (pour le titre) */}
+      <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
         
-        {/* --- TITRE --- */}
+        {/* --- TITRE SECTION --- */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-[#D4A373] italic">
+          <h2 className="font-serif text-5xl md:text-[4rem] text-terracotta italic mb-8 leading-none font-bold">
             Notre équipe
           </h2>
         </motion.div>
 
-        {/* --- LISTE MEMBRES --- */}
-        <div className="flex flex-col gap-20 md:gap-32">
+        {/* --- CONTENU CENTRÉ (Même largeur que About et Expertise) --- */}
+        <div className="mx-auto max-w-4xl flex flex-col gap-20 md:gap-32">
+          
           {teamMembers.map((member, index) => (
             <motion.div 
               key={member.name}
@@ -54,14 +57,19 @@ export default function Team() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              {/* Ligne de séparation avant chaque membre (optionnel, ou juste le premier) */}
-              <div className="w-full h-[1px] bg-primary/20 mb-12 md:mb-16" />
+              {/* Ligne de séparation au dessus de chaque membre */}
+              <div className="w-full h-[1px] bg-primary mb-12 md:mb-16" />
 
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-start">
+              {/* 
+                 GRILLE 2 COLONNES
+                 - grid-cols-2 : Photo à gauche, Texte à droite
+                 - gap-x-12 lg:gap-x-24 : Même espacement que les autres sections
+              */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-12 lg:gap-x-24 items-start">
                 
-                {/* 1. Photo (Gauche) */}
-                <div className="md:col-span-4 lg:col-span-4">
-                  <div className="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-gray-100">
+                {/* 1. Photo (Colonne Gauche) */}
+                <div className="w-full">
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-gray-100">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -71,13 +79,16 @@ export default function Team() {
                   </div>
                 </div>
 
-                {/* 2. Infos (Droite) */}
-                <div className="md:col-span-8 lg:col-span-7 lg:col-start-6 flex flex-col gap-6">
-                  <h3 className="font-serif text-3xl md:text-4xl text-primary font-bold">
+                {/* 2. Infos (Colonne Droite) */}
+                <div className="flex flex-col gap-6 w-full">
+                  
+                  {/* Nom */}
+                  <h3 className="mt-[-5] p-0 leading-none font-serif text-[2rem] text-indigo font-bold tracking-[0.01813rem]">
                     {member.name}
                   </h3>
 
-                  <div className="text-body text-base md:text-lg leading-relaxed space-y-4 text-justify md:text-left">
+                  {/* Bio */}
+                  <div className="text-black font-light text-sm md:text-[0.95rem] leading-[1.25] text-left space-y-4">
                     {member.bio.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
@@ -91,7 +102,7 @@ export default function Team() {
                     <Link 
                       href={member.linkedin} 
                       target="_blank"
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-primary text-primary transition-all hover:bg-primary hover:text-white"
+                      className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-primary text-primary transition-all hover:bg-primary hover:text-white"
                       aria-label={`LinkedIn de ${member.name}`}
                     >
                       <FaLinkedinIn className="text-xl" />
