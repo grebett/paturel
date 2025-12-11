@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] w-full overflow-hidden pt-20 md:pt-60"
+      className="relative w-full overflow-hidden min-h-[calc(100svh-80px)] md:min-h-[calc(100svh-128px)]"
     >
       {/* --- IMAGE DE FOND --- */}
       <div className="absolute inset-0 z-0">
@@ -18,8 +18,6 @@ export default function Hero() {
           className="object-cover object-center"
           priority
         />
-
-        {/* Gradient exact Figma */}
         <div
           className="absolute inset-0 z-10 opacity-98"
           style={{
@@ -30,7 +28,7 @@ export default function Hero() {
       </div>
 
       {/* --- CONTENU --- */}
-      <div className="relative z-20 h-full w-full px-10 md:px-12 xl:px-[7.5rem] flex flex-col justify-center">
+      <div className="relative z-20 h-full w-full px-10 md:px-12 xl:px-[7.5rem] flex flex-col justify-center pt-10 md:pt-24">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
