@@ -21,7 +21,7 @@ const figtree = Figtree({
 
 
 export const metadata: Metadata = {
-  title: "Paturel Notaire",
+  title: "Paturel Notaires",
   description: "Étude notariale à Saint-Germain-en-Laye",
 };
 

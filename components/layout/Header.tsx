@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const navLinks = [
   { name: "ÉTUDE", href: "#etude" },
@@ -19,13 +20,11 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper backdrop-blur-sm transition-all duration-200 border-b border-b-primary/10">
-
-      <div className="w-full h-32 flex items-end md:items-center justify-between px-6 md:px-12 xl:px-[7.5rem] flex-row-reverse md:flex-row">
-
+      <div className="w-full md:h-32 h-20 flex items-end md:items-center justify-between px-10 md:px-12 xl:px-[7.5rem] flex-row-reverse md:flex-row">
         {/* --- LOGO --- */}
         <Link
           href="/"
-          className="relative block w-20 pb-5 md:pb-0 md:w-26 shrink-0"
+          className="relative block w-15 pb-5 md:pb-0 md:w-26 shrink-0"
           onClick={() => setActiveLink("")}
         >
           <Image
@@ -40,19 +39,52 @@ export default function Header() {
 
         {/* --- DESKTOP NAV --- */}
         <nav className="hidden md:flex items-baseline gap-12 pt-[1.625rem]">
-
           {/* BLOC LANGUES */}
           <div className="flex items-center gap-2 text-sm tracking-[0.175rem]">
-            <button onClick={() => setActiveLang("FR")} className="cursor-pointer relative group flex flex-col items-center">
-              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">FR</span>
-              <span className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${activeLang === "FR" ? "opacity-0" : "opacity-100"}`}>FR</span>
-              <span className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${activeLang === "FR" ? "opacity-100" : "opacity-0"}`}>FR</span>
+            <button
+              onClick={() => setActiveLang("FR")}
+              className="cursor-pointer relative group flex flex-col items-center"
+            >
+              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">
+                FR
+              </span>
+              <span
+                className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${
+                  activeLang === "FR" ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                FR
+              </span>
+              <span
+                className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${
+                  activeLang === "FR" ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                FR
+              </span>
             </button>
             <span className="text-indigo relative top-[-0.5px]">|</span>
-            <button onClick={() => setActiveLang("EN")} className="cursor-pointer relative group flex flex-col items-center">
-              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">EN</span>
-              <span className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${activeLang === "EN" ? "opacity-0" : "opacity-100"}`}>EN</span>
-              <span className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${activeLang === "EN" ? "opacity-100" : "opacity-0"}`}>EN</span>
+            <button
+              onClick={() => setActiveLang("EN")}
+              className="cursor-pointer relative group flex flex-col items-center"
+            >
+              <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">
+                EN
+              </span>
+              <span
+                className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${
+                  activeLang === "EN" ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                EN
+              </span>
+              <span
+                className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${
+                  activeLang === "EN" ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                EN
+              </span>
             </button>
           </div>
 
@@ -65,11 +97,27 @@ export default function Header() {
                   onClick={() => setActiveLink(link.name)}
                   className="block text-sm uppercase tracking-[0.175rem] text-center relative"
                 >
-                  <span className="invisible font-bold h-0 overflow-hidden block" aria-hidden="true">{link.name}</span>
-                  <span className={`absolute inset-0 flex items-center justify-center font-normal text-primary group-hover:text-[#352397] transition-opacity duration-300 ease-in-out ${activeLink === link.name ? "opacity-0" : "opacity-100"}`}>{link.name}</span>
-                  <span className={`flex items-center justify-center font-bold text-[#352397] transition-opacity duration-300 ease-in-out ${activeLink === link.name ? "opacity-100" : "opacity-0"}`}>{link.name}</span>
+                  <span
+                    className="invisible font-bold h-0 overflow-hidden block"
+                    aria-hidden="true"
+                  >
+                    {link.name}
+                  </span>
+                  <span
+                    className={`absolute inset-0 flex items-center justify-center font-normal text-primary group-hover:text-[#352397] transition-opacity duration-300 ease-in-out ${
+                      activeLink === link.name ? "opacity-0" : "opacity-100"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                  <span
+                    className={`flex items-center justify-center font-bold text-[#352397] transition-opacity duration-300 ease-in-out ${
+                      activeLink === link.name ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
                 </Link>
-                {/* Soulignement Desktop */}
                 {activeLink === link.name && (
                   <motion.div
                     layoutId="underline"
@@ -90,9 +138,9 @@ export default function Header() {
           <Image
             src={isOpen ? "/images/cross.svg" : "/images/burger.svg"}
             alt="Menu"
-            width={24}
-            height={24}
-            className="w-6 h-6 object-contain"
+            width={22}
+            height={22}
+            className="w-7 h-7 object-contain"
           />
         </button>
       </div>
@@ -104,50 +152,74 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-32 left-0 w-full bg-white border-b border-gray-100 shadow-xl md:hidden p-8 flex flex-col items-left gap-8 z-40"
+            className="absolute top-20 left-0 w-full bg-paper border-b border-primary/20 shadow-xl md:hidden px-10 py-8 flex flex-col justify-between min-h-[calc(100vh-5rem)] z-40"
           >
-            {navLinks.map((link) => (
-              // AJOUT D'UNE DIV RELATIVE POUR ANCRER LA BARRE DE SOULIGNEMENT
-              <div key={link.name} className="relative">
-                <Link
-                  href={link.href}
-                  onClick={() => {
-                    setActiveLink(link.name);
-                    setIsOpen(false);
-                  }}
-                  className={`text-sm tracking-[0.175rem] uppercase transition-colors ${activeLink === link.name
-                      ? "font-bold text-[#352397]"
-                      : "font-normal text-primary"
+            {/* Haut : liens + langues */}
+            <div className="flex flex-col gap-8">
+              {navLinks.map((link) => (
+                <div key={link.name} className="relative">
+                  <Link
+                    href={link.href}
+                    onClick={() => {
+                      setActiveLink(link.name);
+                      setIsOpen(false);
+                    }}
+                    className={`text-sm tracking-[0.175rem] uppercase transition-colors ${
+                      activeLink === link.name
+                        ? "font-bold text-[#352397]"
+                        : "font-normal text-primary"
                     }`}
+                  >
+                    <span className="relative inline-block">
+                      {link.name}
+
+                      {activeLink === link.name && (
+                        <motion.div
+                          layoutId="mobile-underline"
+                          className="absolute -bottom-2 left-0 w-full h-[4px] bg-[#352397]"
+                        />
+                      )}
+                    </span>
+                  </Link>
+                </div>
+              ))}
+
+              <div className="flex gap-2 pt-4 border-t border-gray-100 w-16 justify-center text-sm tracking-widest">
+                <button
+                  onClick={() => setActiveLang("FR")}
+                  className={
+                    activeLang === "FR" ? "font-bold text-[#352397]" : "text-primary"
+                  }
                 >
-                  <span className="relative inline-block">
-                    {link.name}
-
-                    {activeLink === link.name && (
-                      <motion.div
-                        layoutId="mobile-underline"
-                        className="absolute -bottom-2 left-0 w-full h-[4px] bg-[#352397]"
-                      />
-                    )}
-                  </span>
-                </Link>
+                  FR
+                </button>
+                <span className="text-primary/30">|</span>
+                <button
+                  onClick={() => setActiveLang("EN")}
+                  className={
+                    activeLang === "EN" ? "font-bold text-[#352397]" : "text-primary"
+                  }
+                >
+                  EN
+                </button>
               </div>
-            ))}
+            </div>
 
-            <div className="flex gap-4 pt-4 border-t border-gray-100 w-16 justify-center text-sm tracking-widest">
-              <button
-                onClick={() => setActiveLang("FR")}
-                className={activeLang === "FR" ? "font-bold text-[#352397]" : "text-primary"}
+            {/* Bas : ligne + adresse + LinkedIn */}
+            <div className="mt-10 pt-6 border-t border-primary/40 flex flex-col gap-6">
+              <div className="text-xs tracking-[0.18em] text-primary">
+                <p>3 PLACE ANDRÉ MALRAUX</p>
+                <p>78100 SAINT-GERMAIN-EN-LAYE</p>
+                <p>01 88 85 77 77</p>
+              </div>
+
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
+                className="flex items-center justify-center w-10 h-10 bg-[#352397] rounded-full text-white hover:bg-[#24165c] transition-all duration-200 hover:scale-[1.05]"
               >
-                FR
-              </button>
-              <span className="text-primary/30">|</span>
-              <button
-                onClick={() => setActiveLang("EN")}
-                className={activeLang === "EN" ? "font-bold text-[#352397]" : "text-primary"}
-              >
-                EN
-              </button>
+                <FaLinkedinIn />
+              </Link>
             </div>
           </motion.div>
         )}

@@ -10,7 +10,7 @@ const teamMembers = [
     name: "Marc Paturel",
     image: "/images/marc-paturel.png",
     bio: [
-      "Fort d’une expérience de plus de vingt-cinq ans dont quinze en qualité de notaire associé au sein de Wargny Katz, spécialisé en immobilier d’entreprise et institutionnel, Marc conseille une clientèle d’investisseurs notamment étrangers, promoteurs, grands utilisateurs, établissements de crédit pour tout type d’opérations d’investissement en immobilier d’entreprise.",
+      "Fort d’une expérience de plus de vingt-cinq ans dont quinze en qualité de Notaires associé au sein de Wargny Katz, spécialisé en immobilier d’entreprise et institutionnel, Marc conseille une clientèle d’investisseurs notamment étrangers, promoteurs, grands utilisateurs, établissements de crédit pour tout type d’opérations d’investissement en immobilier d’entreprise.",
       "Marc conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
     ],
     language: "Marc travaille aussi bien en anglais qu’en français.",
@@ -32,7 +32,7 @@ export default function Team() {
     <section id="equipe" className="bg-paper py-20 md:py-32">
       
       {/* Container global aligné gauche (pour le titre) */}
-      <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
         
         {/* --- TITRE SECTION --- */}
         <motion.div 
@@ -88,11 +88,11 @@ export default function Team() {
                   </h3>
 
                   {/* Bio */}
-                  <div className="text-black font-light text-sm md:text-[0.95rem] leading-[1.25] text-left space-y-4">
+                  <div className="text-black font-light text-sm md:text-[0.95rem] leading-[1.40] text-left space-y-4">
                     {member.bio.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}
-                    <p className="pt-2 italic text-primary/80">
+                    <p className="pt-2 italic text-black">
                       {member.language}
                     </p>
                   </div>

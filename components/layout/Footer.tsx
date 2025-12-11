@@ -5,11 +5,11 @@ import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const competences = [
-  "IMMOBILIER",
-  "SERVICE AUX ENTREPRISES / CORPORATE",
-  "FINANCEMENTS IMMOBILIERS",
-  "PROMOTION / ACTEUR PUBLICS",
-  "CLIENTÈLE PRIVÉE",
+  { title: "IMMOBILIER", slug: "immobilier" },
+  { title: "SERVICE AUX ENTREPRISES / CORPORATE", slug: "corporate" },
+  { title: "FINANCEMENTS IMMOBILIERS", slug: "financements-immobiliers" },
+  { title: "PROMOTION / ACTEUR PUBLICS", slug: "promotion-amenagement" },
+  { title: "CLIENTÈLE PRIVÉE", slug: "clientele-privee" },
 ];
 
 const links = [
@@ -29,30 +29,30 @@ export default function Footer() {
     <footer className="bg-[#1E1343] text-white md:pt-24 pb-8">
       
       {/* Container global aligné (7.5rem) */}
-      <div className="w-full px-6 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
         
         {/* --- PARTIE HAUTE : GRILLE 2 COLONNES --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-center lg:items-start">
           
           {/* COLONNE 1 : Logo Paturel (Centré verticalement par rapport au bloc de droite) */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-center h-full">
+          <div className="lg:col-span-5 flex justify-center lg:justify-center h-full">
             <Link href="/" className="block">
               <Image
                 src="/images/paturel-logo-white.svg"
-                alt="Paturel Notaire"
+                alt="Paturel Notaires"
                 width={220}
                 height={150}
-                className="w-56 h-auto mt-25"
+                className="w-60 h-auto mt-25"
               />
             </Link>
           </div>
 
           {/* COLONNE 2 : Bloc contenu (Adresse, Liens, Logos) */}
-          <div className="lg:col-span-6 flex flex-col w-full">
+          <div className="lg:col-span-7 flex flex-col w-full">
             
             {/* 1. LIGNE DU HAUT : Adresse (Gauche) + LinkedIn (Droite) */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6">
-              <address className="not-italic text-sm font-light leading-relaxed font-sans">
+              <address className="not-italic text-m font-light leading-relaxed font-sans">
                 3 Place André Malraux<br />
                 78100 SAINT-GERMAIN-EN-LAYE<br />
                 01 88 85 77 77
@@ -71,18 +71,16 @@ export default function Footer() {
             <div className="w-full h-1.5 bg-white mb-10" />
 
             {/* 3. COLONNES DE LIENS */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               
               {/* Sous-colonne Gauche : Compétences */}
               <div className="flex flex-col">
-                <h3 className="font-bold text-xs tracking-widest uppercase">
-                  Compétences
-                </h3>
                 <ul className="">
+                  <li className="font-bold text-xs tracking-widest uppercase">Compétences</li>
                   {competences.map((item) => (
-                    <li key={item}>
-                      <Link href="#expertise" className="text-xs leading-1 tracking-widest font-light hover:text-white/70 transition-colors uppercase">
-                        {item}
+                    <li key={item.slug}>
+                      <Link href={`#${item.slug}`} className="text-xs leading-2 tracking-widest font-medium hover:text-white/70 transition-colors uppercase">
+                        {item.title}
                       </Link>
                     </li>
                   ))}
@@ -97,7 +95,7 @@ export default function Footer() {
                 <ul className="">
                   {links.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.href} className="text-xs tracking-widest font-regular hover:text-white/70 transition-colors uppercase">
+                      <Link href={link.href} className="text-xs tracking-widest leading-2 font-medium hover:text-white/70 transition-colors uppercase">
                         {link.name}
                       </Link>
                     </li>
@@ -133,7 +131,7 @@ export default function Footer() {
           
           {/* Gauche : Copyright */}
           <div>
-            <span>© Paturel Notaire - Tous Droits Réservés</span>
+            <span>© Paturel Notaires - Tous Droits Réservés</span>
           </div>
 
           {/* Droite : Mentions */}
