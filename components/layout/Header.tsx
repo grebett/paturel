@@ -10,7 +10,7 @@ const navLinks = [
   { name: "ÉTUDE", href: "#etude" },
   { name: "EXPERTISE", href: "#expertise" },
   { name: "ÉQUIPE", href: "#equipe" },
-  { name: "CONTACT", href: "#contact" },
+  { name: "CONTACT / RECRUTEMENT", href: "#contact" },
 ];
 
 export default function Header() {

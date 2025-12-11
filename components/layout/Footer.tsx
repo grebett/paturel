@@ -20,20 +20,20 @@ const links = [
 ];
 
 export default function Footer() {
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className="bg-[#1E1343] text-white md:pt-24 pb-8">
-      
+
       {/* Container global aligné (7.5rem) */}
       <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
-        
+
         {/* --- PARTIE HAUTE : GRILLE 2 COLONNES --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-center lg:items-start">
-          
+
           {/* COLONNE 1 : Logo Paturel (Centré verticalement par rapport au bloc de droite) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-center h-full">
             <Link href="/" className="block">
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* COLONNE 2 : Bloc contenu (Adresse, Liens, Logos) */}
           <div className="lg:col-span-7 flex flex-col w-full">
-            
+
             {/* 1. LIGNE DU HAUT : Adresse (Gauche) + LinkedIn (Droite) */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6">
               <address className="not-italic text-m font-light leading-relaxed font-sans">
@@ -58,8 +58,8 @@ export default function Footer() {
                 01 88 85 77 77
               </address>
 
-              <Link 
-                href="https://linkedin.com" 
+              <Link
+                href="https://linkedin.com"
                 target="_blank"
                 className="flex items-center justify-center w-10 h-10 bg-white/90 rounded-full text-[#1E1343] hover:bg-white transition-all duration-200 hover:scale-[1.05]"
               >
@@ -72,7 +72,7 @@ export default function Footer() {
 
             {/* 3. COLONNES DE LIENS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              
+
               {/* Sous-colonne Gauche : Compétences */}
               <div className="flex flex-col">
                 <ul className="">
@@ -90,7 +90,7 @@ export default function Footer() {
               {/* Sous-colonne Droite : Navigation + Langue + Logo Notaire */}
               {/* 'items-end text-right' pour ferrer à droite */}
               <div className="flex flex-col items-start md:items-end text-left md:text-right justify-between h-full gap-8">
-                
+
                 {/* Navigation Links */}
                 <ul className="">
                   {links.map((link) => (
@@ -109,7 +109,7 @@ export default function Footer() {
 
                 {/* Logo Notaires de France */}
                 <div className="mt-4">
-                   <Image
+                  <Image
                     src="/images/notaire-logo-white.svg"
                     alt="Notaires de France"
                     width={80}
@@ -123,22 +123,30 @@ export default function Footer() {
           </div>
         </div>
 
-           {/* --- SEPARATEUR FIN --- */}
+        {/* --- SEPARATEUR FIN --- */}
         <div className="w-full h-[1px] bg-white/80 mb-4" />
 
         {/* --- PARTIE BASSE TEXTE (Copyright / Mentions) --- */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-white/90 font-light tracking-wide">
-          
-          {/* Gauche : Copyright */}
-          <div>
-            <span>© Paturel Notaires - Tous Droits Réservés</span>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-white/80 font-light tracking-wide">
+
+          {/* Mentions → en premier en mobile, en second en desktop */}
+          <div className="flex flex-col items-center md:items-end gap-1 order-1 md:order-2">
+            <Link href="#" className="hover:text-white transition-colors">
+              Mentions légales — Politique de confidentialité
+            </Link>
           </div>
 
-          {/* Droite : Mentions */}
-          <div>
-            <Link href="#" className="hover:text-white transition-colors">Mentions Légales - Politique De Confidentialité</Link>
+          {/* Copyright → en second en mobile, en premier en desktop */}
+          <div className="flex flex-col items-center md:items-start gap-1 order-2 md:order-1">
+            <span>© Paturel Notaires — Tous droits réservés</span>
+            <span className="opacity-70">
+              Ce site ne dépose aucun cookie et ne réalise aucune mesure d’audience.
+            </span>
           </div>
+
         </div>
+
+
 
         {/* 
             --- FLÈCHE EN DESSOUS --- 
@@ -146,19 +154,19 @@ export default function Footer() {
             mt-6 pour l'espacer du texte
         */}
         <div className="flex justify-end mt-6">
-            <button 
-              onClick={scrollToTop}
-              className="group cursor-pointer transition-all duration-150 hover:scale-[1.05] hover:bg-white/10 border-1 rounded-full"
-              aria-label="Retour en haut"
-            >
-              <Image
-                src="/images/arrow.svg"
-                alt="Haut de page"
-                width={24}
-                height={24}
-                className="w-10 h-10"
-              />
-            </button>
+          <button
+            onClick={scrollToTop}
+            className="group cursor-pointer transition-all duration-150 hover:scale-[1.05] hover:bg-white/10 border-1 rounded-full"
+            aria-label="Retour en haut"
+          >
+            <Image
+              src="/images/arrow.svg"
+              alt="Haut de page"
+              width={24}
+              height={24}
+              className="w-10 h-10"
+            />
+          </button>
         </div>
 
       </div>
