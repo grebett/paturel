@@ -8,7 +8,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 const teamMembers = [
   {
     name: "Marc Paturel",
-    image: "/images/marc-paturel.png",
+    image: "/images/marc-paturel.jpg",
     bio: [
       "Fort d’une expérience de plus de vingt-cinq ans dont quinze en qualité de Notaires associé au sein de Wargny Katz, spécialisé en immobilier d’entreprise et institutionnel, Marc conseille une clientèle d’investisseurs notamment étrangers, promoteurs, grands utilisateurs, établissements de crédit pour tout type d’opérations d’investissement en immobilier d’entreprise.",
       "Marc conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
@@ -18,7 +18,7 @@ const teamMembers = [
   },
   {
     name: "Florence Pignal",
-    image: "/images/florence-pignal.png",
+    image: "/images/florence-pignal.jpg",
     bio: [
       "Spécialisée en droit immobilier, et forte d’une dizaine d’années d’expérience au sein d’études de premier plan, dont sept à travailler en binôme avec Marc Paturel au sein de Wargny Katz, Florence intervient dans les domaines de l’immobilier d’entreprise (investissement, promotion, aménagement) et conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
     ],
