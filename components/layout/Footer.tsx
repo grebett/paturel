@@ -115,7 +115,7 @@ export default function Footer() {
                 {/* Logo Notaires */}
                 <div className="mt-4 shrink-0">
                   <Image
-                    src="/images/notaire-logo-white.svg"
+                    src="/images/notaires.svg"
                     alt="Notaires de France"
                     width={80}
                     height={80}
