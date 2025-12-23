@@ -54,5 +54,29 @@ Contact:
     other: "Autre demande"
 
 Footer:
-  address: "123 Rue de la République, 78100 Saint-Germain-en-Laye"
-  legal: "Mentions légales"
+  address:
+    line1: "3 Place André Malraux"
+    line2: "78100 SAINT-GERMAIN-EN-LAYE"
+    phone: "01 88 85 77 77"
+  titles:
+    competences: "COMPÉTENCES"
+  competences:
+    immobilier: "IMMOBILIER"
+    corporate: "SERVICE AUX ENTREPRISES / CORPORATE"
+    financements: "FINANCEMENTS IMMOBILIERS"
+    promotion: "PROMOTION / ACTEUR PUBLICS"
+    privee: "CLIENTÈLE PRIVÉE"
+  nav:
+    contact: "CONTACT"
+    tarifs: "TARIFS"
+    etude: "ÉTUDE"
+    equipe: "ÉQUIPE"
+  legal:
+    mentions: "Mentions légales — Politique de confidentialité"
+    copyright: "© Paturel Notaires — Tous droits réservés"
+    disclaimer: "Ce site ne dépose aucun cookie et ne réalise aucune mesure d’audience."
+  a11y:
+    logo_alt: "Paturel Notaires"
+    notaires_logo_alt: "Logo Notaires de France"
+    scroll_top: "Retour en haut de page"
+    linkedin: "Visiter notre page LinkedIn"
