@@ -2,58 +2,31 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const expertiseItems = [
-  {
-    id: 1,
-    title: "Immobilier",
-    slug: "immobilier",
-    desc: `L’étude intervient pour tous les projets immobiliers qu’il s’agisse d’acquisitions ou de cessions et pour tous types d’actifs (hôtellerie, logistique, bureaux, centres commerciaux, locaux commerciaux, sites industriels / usines, résidences étudiantes, logements), aussi bien en français qu’en anglais.
-
-L’étude a développé une compétence spécifique en immobilier, et particulièrement en immobilier tertiaire, les associés ayant conseillé une clientèle de fonds d’investissement, de foncières, de grands utilisateurs pendant plus de vingt ans.  `
-  },
-  {
-    id: 2,
-    title: "Corporate",
-    slug: "corporate",
-    desc: "L’étude accompagne les entreprises dans leur projet de restructuration et notamment ceux comprenant des sous-jacents immobiliers dans le cadre de transmissions universelles de patrimoine, apports partiels d’actifs, qu’il s’agisse de rédiger les actes ou d’établir les rapports d’audit immobiliers nécessaires à la structuration."
-  },
-  {
-    id: 3,
-    title: "Financements immobiliers",
-    slug: "financements-immobiliers",
-    desc: "L’étude accompagne les établissements de crédit et / ou les emprunteurs dans le cadre de la mise en place de leur financement et de l’octroi des sûretés y afférent qu’il s’agisse de financements personnels ou professionnels."
-  },
-  {
-    id: 4,
-    title: "Promotion / Aménagement",
-    slug: "promotion-amenagement",
-    desc: "L’étude accompagne les promoteurs, collectivités publiques, aménageurs, investisseurs dans le cadre du développement de projets fonciers en participant tant à l’acquisition / la vente des fonciers nécessaires au développement de ces projets qu’au montage de ces projets et de leurs commercialisations."
-  },
-  {
-    id: 5,
-    title: "Clientèle privée",
-    slug: "clientele-privee",
-    desc: "L’étude accompagne ses clients particuliers dans le cadre de leurs acquisitions / cessions."
-  }
-];
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Expertise() {
+  const t = useTranslations("Expertise");
+  const locale = useLocale();
+
+  // Liste des clés définies dans le YAML
+  const itemKeys = ["item1", "item2", "item3", "item4", "item5"];
+
   return (
-    <section id="expertise" className="bg-peau py-20 md:py-32">
+    <section id="expertise" className="bg-peau py-20 md:py-25">
       
       {/* Container global aligné gauche */}
-      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full px-10 md:px-20 xl:px-[7.5rem]">
         
         {/* --- TITRE SECTION --- */}
         <motion.div 
+          key={`title-${locale}`}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
           <h2 className="font-serif text-5xl md:text-[4rem] text-primary italic mb-8 leading-none font-bold">
-            Notre expertise
+            {t("title")}
           </h2>
         </motion.div>
 
@@ -63,54 +36,59 @@ export default function Expertise() {
         {/* --- Contenu centré (4xl) --- */}
         <div className="mx-auto max-w-4xl flex flex-col">
 
-          {expertiseItems.map((item, index) => (
-            <motion.div 
-              key={item.id}
-              id={item.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group border-b border-primary last:border-none"
-            >
-              
-              <div className="flex flex-col md:flex-row gap-y-6 gap-x-12 lg:gap-x-24 py-12 md:py-16 items-start md:items-center">
+          {itemKeys.map((key, index) => {
+            // On récupère le slug traduit (ou hardcodé dans le YAML s'il ne change pas)
+            const slug = t(`items.${key}.slug`);
+            
+            return (
+              <motion.div 
+                key={`${key}-${locale}`} // Force le re-render à chaque changement de langue
+                id={slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group border-b border-primary last:border-none"
+              >
                 
-                {/* --- COLONNE GAUCHE : largeur custom --- */}
-                <div className="flex items-center gap-6 md:gap-8 flex-1">
+                <div className="flex flex-col md:flex-row gap-y-6 gap-x-12 lg:gap-x-24 py-12 md:py-25 items-start md:items-center">
                   
-                  {/* Le Cercle */}
-                  <div className="shrink-0 relative w-16 h-16 flex items-center justify-center">
-                    <div className="absolute inset-0 transition-transform duration-700 group-hover:rotate-90">
-                      <Image 
-                        src="/images/number-external-circle.svg" 
-                        alt="" 
-                        fill 
-                        className="object-contain"
-                      />
+                  {/* --- COLONNE GAUCHE : largeur custom --- */}
+                  <div className="flex items-center gap-6 md:gap-8 flex-1">
+                    
+                    {/* Le Cercle */}
+                    <div className="shrink-0 relative w-16 h-16 flex items-center justify-center">
+                      <div className="absolute inset-0 transition-transform duration-700 group-hover:rotate-90">
+                        <Image 
+                          src="/images/number-external-circle.svg" 
+                          alt="" 
+                          fill 
+                          className="object-contain"
+                        />
+                      </div>
+                      <span className="relative z-10 font-serif text-4xl text-indigo font-bold -mt-3.25">
+                        {t(`items.${key}.id`)}
+                      </span>
                     </div>
-                    <span className="relative z-10 font-serif text-4xl text-indigo font-bold -mt-3.25">
-                      {item.id}
-                    </span>
+
+                    {/* Titre */}
+                    <h3 className="font-serif text-[1.8125rem] text-indigo italic font-bold leading-normal tracking-[0.01813rem]">
+                      {t(`items.${key}.title`)}
+                    </h3>
+
                   </div>
 
-                  {/* Titre */}
-                  <h3 className="font-serif text-[1.8125rem] text-indigo italic font-bold leading-normal tracking-[0.01813rem]">
-                    {item.title}
-                  </h3>
+                  {/* --- COLONNE DROITE : prend tout le reste --- */}
+                  <div className="md:w-[420px]">
+                    <p className="text-black font-light text-sm md:text-[0.95rem] leading-[1.40] whitespace-pre-line">
+                      {t(`items.${key}.desc`)}
+                    </p>
+                  </div>
 
                 </div>
-
-                {/* --- COLONNE DROITE : prend tout le reste --- */}
-                <div className="md:w-[420px]">
-                  <p className="text-black font-light text-sm md:text-[0.95rem] leading-[1.40] whitespace-pre-line">
-                    {item.desc}
-                  </p>
-                </div>
-
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>

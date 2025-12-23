@@ -41,35 +41,76 @@ About:
     office_alt: "Intérieur de l'étude Paturel Notaires"
 
 Expertise:
-  title: "Nos Domaines d'Intervention"
-  family: "Droit de la famille"
-  realestate: "Immobilier"
-  business: "Droit des affaires"
-  heritage: "Gestion de patrimoine"
+  title: "Notre expertise"
+  items:
+    item1:
+      id: "1"
+      slug: "immobilier"
+      title: "Immobilier"
+      desc: "L’étude intervient pour tous les projets immobiliers qu’il s’agisse d’acquisitions ou de cessions et pour tous types d’actifs (hôtellerie, logistique, bureaux, centres commerciaux, locaux commerciaux, sites industriels / usines, résidences étudiantes, logements), aussi bien en français qu’en anglais.\n\nL’étude a développé une compétence spécifique en immobilier, et particulièrement en immobilier tertiaire, les associés ayant conseillé une clientèle de fonds d’investissement, de foncières, de grands utilisateurs pendant plus de vingt ans."
+    item2:
+      id: "2"
+      slug: "corporate"
+      title: "Corporate"
+      desc: "L’étude accompagne les entreprises dans leur projet de restructuration et notamment ceux comprenant des sous-jacents immobiliers dans le cadre de transmissions universelles de patrimoine, apports partiels d’actifs, qu’il s’agisse de rédiger les actes ou d’établir les rapports d’audit immobiliers nécessaires à la structuration."
+    item3:
+      id: "3"
+      slug: "financements-immobiliers"
+      title: "Financements immobiliers"
+      desc: "L’étude accompagne les établissements de crédit et / ou les emprunteurs dans le cadre de la mise en place de leur financement et de l’octroi des sûretés y afférent qu’il s’agisse de financements personnels ou professionnels."
+    item4:
+      id: "4"
+      slug: "promotion-amenagement"
+      title: "Promotion / Aménagement"
+      desc: "L’étude accompagne les promoteurs, collectivités publiques, aménageurs, investisseurs dans le cadre de la mise en place de projets fonciers en participant tant à l’acquisition / la vente des fonciers nécessaires au développement de ces projets qu’au montage de ces projets et de leurs commercialisations."
+    item5:
+      id: "5"
+      slug: "clientele-privee"
+      title: "Clientèle privée"
+      desc: "L’étude accompagne ses clients particuliers dans le cadre de leurs acquisitions / cessions."
 
 Team:
-  title: "Notre Équipe"
-  notaries: "Les Notaires"
-  collaborators: "Les Collaborateurs"
+  title: "Notre équipe"
+  members:
+    marc:
+      name: "Marc Paturel"
+      # \n\n permet de créer les paragraphes visuels
+      bio: "Fort d’une expérience de plus de vingt-cinq ans dont quinze en qualité de Notaires associé au sein de Wargny Katz, spécialisé en immobilier d’entreprise et institutionnel, Marc conseille une clientèle d’investisseurs notamment étrangers, promoteurs, grands utilisateurs, établissements de crédit pour tout type d’opérations d’investissement en immobilier d’entreprise.\n\nMarc conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
+      language: "Marc travaille aussi bien en anglais qu’en français."
+    florence:
+      name: "Florence Pignal"
+      bio: "Spécialisée en droit immobilier, et forte d’une dizaine d’années d’expérience au sein d’études de premier plan, dont sept à travailler en binôme avec Marc Paturel au sein de Wargny Katz, Florence intervient dans les domaines de l’immobilier d’entreprise (investissement, promotion, aménagement) et conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
+      language: "Florence travaille aussi bien en anglais qu’en français."
 
 Contact:
-  title: "Contactez-nous"
+  title: "Contact &<br></br>Recrutement"
+  intro: "Nous sommes à votre disposition pour toute demande d'information ou toute question. Vous pouvez nous les adresser via le formulaire ci-contre.\n\nL'étude Paturel Notaires est en quête constante de nouveaux talents. Vous souhaitez nous rejoindre ? Adressez nous votre candidature selon le formulaire de contact ci-contre."
   form:
-    firstname: "Prénom"
-    lastname: "Nom"
-    email: "Email"
+    firstname: "Prénom*"
+    firstname_ph: "Ecrire votre prénom"
+    lastname: "Nom*"
+    lastname_ph: "Ecrire votre nom"
+    email: "Email*"
+    email_ph: "Ecrire votre email"
     phone: "Téléphone"
-    subject: "Objet de la demande"
-    message: "Message"
-    submit: "Envoyer"
-    success: "Message envoyé avec succès."
-    error: "Une erreur est survenue."
+    phone_ph: "Ecrire votre téléphone"
+    subject: "Sujet de la demande*"
+    subject_default: "Choisir le motif de votre demande"
+    message: "Message*"
+    message_ph: "Ecrire votre message"
+    mandatory: "*Champs obligatoires"
+    submit: "Envoyer votre message"
+    submitting: "Envoi en cours..."
   subjects:
     info: "Demande d'information"
     rdv: "Prise de rendez-vous"
-    act: "Question relative à un acte"
-    job: "Candidature & recrutement"
+    act: "Question relative à un dossier / acte"
+    job: "Candidature / recrutement"
     other: "Autre demande"
+  toast:
+    success: "Votre message a bien été envoyé."
+    error: "Une erreur est survenue. Merci de réessayer ou d'écrire à accueil@paturel.notaires.fr."
+    close: "Fermer"
 
 Footer:
   address:
@@ -86,6 +127,7 @@ Footer:
     privee: "CLIENTÈLE PRIVÉE"
   nav:
     contact: "CONTACT"
+    recrutement: "RECRUTEMENT"
     tarifs: "TARIFS"
     etude: "ÉTUDE"
     equipe: "ÉQUIPE"
@@ -98,3 +140,4 @@ Footer:
     notaires_logo_alt: "Logo Notaires de France"
     scroll_top: "Retour en haut de page"
     linkedin: "Visiter notre page LinkedIn"
+    stamp_alt: "Sceau Paturel"

@@ -41,35 +41,75 @@ About:
     office_alt: "Interior of Paturel Notaires office"
 
 Expertise:
-  title: "Nos Domaines d'Intervention"
-  family: "Droit de la famille"
-  realestate: "Immobilier"
-  business: "Droit des affaires"
-  heritage: "Gestion de patrimoine"
+  title: "Our Expertise"
+  items:
+    item1:
+      id: "1"
+      slug: "immobilier"
+      title: "Real Estate"
+      desc: "The office intervenes in all real estate projects, whether acquisitions or disposals, and for all types of assets (hospitality, logistics, offices, shopping centers, retail premises, industrial sites/factories, student residences, housing), in both French and English.\n\nThe office has developed specific expertise in real estate, particularly in commercial real estate, with partners having advised a clientele of investment funds, property companies, and major users for over twenty years."
+    item2:
+      id: "2"
+      slug: "corporate"
+      title: "Corporate Services"
+      desc: "The office supports companies in their restructuring projects, particularly those involving underlying real estate assets within the framework of universal transfers of assets, partial contributions of assets, whether drafting deeds or establishing real estate audit reports necessary for structuring."
+    item3:
+      id: "3"
+      slug: "financements-immobiliers"
+      title: "Real Estate Financing"
+      desc: "The office supports credit institutions and/or borrowers in setting up their financing and granting related securities, whether for personal or professional financing."
+    item4:
+      id: "4"
+      slug: "promotion-amenagement"
+      title: "Development / Public Sector"
+      desc: "The office supports developers, public authorities, planners, and investors in the development of land projects by participating in both the acquisition/sale of land necessary for the development of these projects and in the structuring and marketing of these projects."
+    item5:
+      id: "5"
+      slug: "clientele-privee"
+      title: "Private Clients"
+      desc: "The office supports its private clients in the context of their acquisitions / disposals."
 
 Team:
-  title: "Notre Équipe"
-  notaries: "Les Notaires"
-  collaborators: "Les Collaborateurs"
+  title: "Our Team"
+  members:
+    marc:
+      name: "Marc Paturel"
+      bio: "With over twenty-five years of experience, including fifteen as a Partner Notary at Wargny Katz, specializing in corporate and institutional real estate, Marc advises a clientele of investors (notably foreign), developers, major users, and credit institutions for all types of corporate real estate investment operations.\n\nMarc also advises private clients and foundations on their various real estate projects."
+      language: "Marc works equally well in English and French."
+    florence:
+      name: "Florence Pignal"
+      bio: "Specializing in real estate law, and with about ten years of experience in leading offices, including seven working in tandem with Marc Paturel at Wargny Katz, Florence operates in the fields of corporate real estate (investment, development, planning) and also advises private clients and foundations on their various real estate projects."
+      language: "Florence works equally well in English and French."
 
 Contact:
-  title: "Contactez-nous"
+  title: "Contact &<br></br>Recruitment"
+  intro: "We are at your disposal for any information request or question. You can address them to us via the form opposite.\n\nPaturel Notaires is constantly looking for new talents. Do you wish to join us? Send us your application using the contact form opposite."
   form:
-    firstname: "Prénom"
-    lastname: "Nom"
-    email: "Email"
-    phone: "Téléphone"
-    subject: "Objet de la demande"
-    message: "Message"
-    submit: "Envoyer"
-    success: "Message envoyé avec succès."
-    error: "Une erreur est survenue."
+    firstname: "First Name*"
+    firstname_ph: "Enter your first name"
+    lastname: "Last Name*"
+    lastname_ph: "Enter your last name"
+    email: "Email*"
+    email_ph: "Enter your email"
+    phone: "Phone"
+    phone_ph: "Enter your phone number"
+    subject: "Subject*"
+    subject_default: "Choose the reason for your request"
+    message: "Message*"
+    message_ph: "Enter your message"
+    mandatory: "*Mandatory fields"
+    submit: "Send your message"
+    submitting: "Sending..."
   subjects:
-    info: "Demande d'information"
-    rdv: "Prise de rendez-vous"
-    act: "Question relative à un acte"
-    job: "Candidature & recrutement"
-    other: "Autre demande"
+    info: "Information request"
+    rdv: "Appointment request"
+    act: "Question regarding a file / deed"
+    job: "Application / recruitment"
+    other: "Other request"
+  toast:
+    success: "Your message has been sent successfully."
+    error: "An error occurred. Please try again or write to accueil@paturel.notaires.fr."
+    close: "Close"
 
 Footer:
   address:
@@ -86,6 +126,7 @@ Footer:
     privee: "PRIVATE CLIENTS"
   nav:
     contact: "CONTACT"
+    recrutement: "CAREERS"
     tarifs: "FEES"
     etude: "THE OFFICE"
     equipe: "TEAM"
@@ -98,3 +139,4 @@ Footer:
     notaires_logo_alt: "Notaires de France Logo"
     scroll_top: "Scroll to top"
     linkedin: "Visit our LinkedIn page"
+    stamp_alt: "Paturel Stamp"

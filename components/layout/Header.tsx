@@ -33,12 +33,12 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper backdrop-blur-sm transition-all duration-200 border-b border-b-primary/10">
-      <div className="w-full md:h-32 h-20 flex items-end md:items-center justify-between px-10 md:px-12 xl:px-[7.5rem] flex-row-reverse md:flex-row">
+      <div className="w-full md:h-32 h-20 flex items-end md:items-center justify-between px-10 md:px-20 xl:px-[7.5rem] flex-row-reverse md:flex-row">
         
         {/* --- LOGO --- */}
         <Link
           href="/"
-          className="relative block w-15 pb-5 md:pb-0 md:w-26 shrink-0"
+          className="relative block w-15 pb-5 md:pb-0 md:w-30 shrink-0"
           onClick={() => setActiveLink("")}
         >
           <Image
@@ -52,7 +52,7 @@ export default function Header() {
         </Link>
 
         {/* --- DESKTOP NAV --- */}
-        <nav className="hidden md:flex items-baseline gap-12 pt-[1.625rem]">
+        <nav className="hidden md:flex items-baseline gap-12 pt-[2.2rem]">
           {/* BLOC LANGUES */}
           <div className="flex items-center gap-2 text-sm tracking-[0.175rem]">
             <button

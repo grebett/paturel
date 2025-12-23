@@ -20,7 +20,7 @@ export default function About() {
 
   return (
     <section id="etude" className="py-20 md:py-22 bg-paper">
-      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full px-10 md:px-20 xl:px-[7.5rem]">
         {/* --- TITRE --- */}
         <motion.h2
           key={`title-${locale}`} // 3. FORCE LE REFRESH : change à chaque langue
@@ -35,7 +35,7 @@ export default function About() {
 
         <div className="mx-auto max-w-4xl h-[1px] bg-primary mb-12 md:mb-18" />
 
-        <div className="mx-auto max-w-4xl grid grid-cols-1 lg:grid-cols-4 gap-y-10 gap-x-12 lg:gap-x-24 items-start">
+        <div className="mx-auto max-w-4xl grid grid-cols-1 lg:grid-cols-4 gap-y-10 gap-x-12 lg:gap-x-24 items-start pb-8">
           
           {/* --- BLOC 1 --- */}
           <motion.div

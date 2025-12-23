@@ -17,8 +17,9 @@ const competencesList = [
 ];
 
 const linksList = [
-  { key: "contact", href: "#contact" },
   { key: "tarifs", href: "#" }, // Placeholder PDF
+  { key: "contact", href: "#contact" },
+  { key: "recrutement", href: "#contact" },
   { key: "etude", href: "#etude" },
   { key: "equipe", href: "#equipe" },
 ];
@@ -40,7 +41,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1E1343] text-white md:pt-24 pb-8 overflow-x-hidden">
       {/* Container global aligné (7.5rem) */}
-      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
+      <div className="w-full px-10 md:px-20 xl:px-[7.5rem]">
         {/* --- PARTIE HAUTE : GRILLE 2 COLONNES --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-center lg:items-start">
           
@@ -48,11 +49,11 @@ export default function Footer() {
           <div className="lg:col-span-5 flex justify-center lg:justify-center h-full min-w-0">
             <Link href="/" className="block">
               <Image
-                src="/images/paturel-logo-white.svg"
-                alt={t("a11y.logo_alt")}
+                src="/images/stamp.svg"
+                alt={t("a11y.stamp_alt")}
                 width={220}
                 height={150}
-                className="w-60 h-auto mt-25"
+                className="md:w-60 lg:w-50 h-auto mt-15"
               />
             </Link>
           </div>
@@ -71,11 +72,11 @@ export default function Footer() {
               </address>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/paturel-notaires/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("a11y.linkedin")}
-                className="flex items-center justify-center w-10 h-10 bg-white/90 rounded-full text-[#1E1343] hover:bg-white transition-all duration-200 hover:scale-[1.05] shrink-0"
+                className="flex items-center justify-center w-10 h-10 bg-white rounded-full text-[#1E1343] hover:bg-white/90 transition-all duration-200 hover:scale-[1.05] shrink-0"
               >
                 <FaLinkedinIn />
               </a>
@@ -161,7 +162,7 @@ export default function Footer() {
         <div className="w-full h-[1px] bg-white/80 mb-4" />
 
         {/* Bas footer */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-white/80 font-light tracking-wide min-w-0">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/80 font-light tracking-wide min-w-0">
           {/* Mentions → 1er en mobile, 2e en desktop */}
           <div className="flex flex-col items-center md:items-end gap-1 order-1 md:order-2 min-w-0">
             <Link
@@ -192,7 +193,7 @@ export default function Footer() {
           >
             <Image
               src="/images/arrow.svg"
-              alt=""
+              alt="haut de page / go to top"
               width={24}
               height={24}
               className="w-10 h-10"

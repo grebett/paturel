@@ -1,14 +1,19 @@
 export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { mailText, mjmlTemplate, mailSubject } from "./template";
+// Importe toutes les versions des templates (FR et EN)
+import { 
+  mailText, mjmlTemplate, mailSubject, 
+  mailTextEn, mjmlTemplateEn, mailSubjectEn 
+} from "./template";
 import { renderMjml } from "@/lib/mailer/renderMjml";
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
 
-        const { firstname, lastname, email, phone, subject, message } = body;
+        // Ajoute 'locale' à la déstructuration du corps de la requête
+        const { firstname, lastname, email, phone, subject, message, locale } = body;
 
         if (!firstname || !lastname || !email || !message) {
             return NextResponse.json(
@@ -16,6 +21,15 @@ export async function POST(request: Request) {
                 { status: 400 }
             );
         }
+
+        // --- Détermine quel jeu de templates utiliser ---
+        // Par défaut, nous utilisons le français si la locale n'est pas "en"
+        const isEnglish = locale === 'en';
+
+        const selectedMjmlTemplate = isEnglish ? mjmlTemplateEn : mjmlTemplate;
+        const selectedMailText = isEnglish ? mailTextEn : mailText;
+        const selectedMailSubject = isEnglish ? mailSubjectEn : mailSubject;
+        // -----------------------------------------------
 
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
@@ -27,18 +41,19 @@ export async function POST(request: Request) {
             }
         });
 
-        const html = renderMjml(mjmlTemplate({ firstname, lastname, email, phone, subject, message }));
-        const text = mailText({ firstname, lastname, email, phone, subject, message });
+        // Utilise les templates sélectionnés
+        const html = renderMjml(selectedMjmlTemplate({ firstname, lastname, email, phone, subject, message }));
+        const text = selectedMailText({ firstname, lastname, email, phone, subject, message });
         
+        // La ligne console.log a été commentée/supprimée car c'était du débogage
+        // console.log(html, text);
 
-        console.log(html, text);
-
-        // return NextResponse.json({ ok: true });
         await transporter.sendMail({
             from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM}>`,
             to: process.env.MAIL_TO,
             replyTo: email,
-            subject: mailSubject({ firstname, lastname, subject }),
+            // Utilise le générateur de sujet sélectionné
+            subject: selectedMailSubject({ firstname, lastname, subject }),
             text,
             html,
         });
