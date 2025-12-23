@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin(
+  './i18n/request.ts'
+);
+
 const nextConfig = {
-  // Ajoutez cette partie
-  serverExternalPackages: ["mjml"], 
+  serverExternalPackages: ["mjml"],
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

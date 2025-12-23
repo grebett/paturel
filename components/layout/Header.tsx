@@ -1,26 +1,43 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useTranslations, useLocale } from "next-intl";
+
+// --- IMPORTANT : On utilise tes imports personnalisés ---
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 const navLinks = [
-  { name: "ÉTUDE", href: "#etude" },
-  { name: "EXPERTISE", href: "#expertise" },
-  { name: "ÉQUIPE", href: "#equipe" },
-  { name: "CONTACT / RECRUTEMENT", href: "#contact" },
+  { key: "etude", href: "#etude" },
+  { key: "expertise", href: "#expertise" },
+  { key: "equipe", href: "#equipe" },
+  { key: "contact", href: "#contact" },
 ];
 
 export default function Header() {
+  const t = useTranslations("Header");
+  const locale = useLocale(); // "fr" ou "en"
+  
+  // Ces hooks sont magiques : pathname n'a pas le préfixe de langue !
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("ÉTUDE");
-  const [activeLang, setActiveLang] = useState("FR");
+  const [activeLink, setActiveLink] = useState("etude");
+
+  const switchLanguage = (newLocale: string) => {
+    // C'est ici que la magie opère.
+    // On dit juste : "Reste sur le même chemin (pathname), mais change la locale".
+    // next-intl va automatiquement rediriger vers '/' (si fr) ou '/en' (si en).
+    router.replace(pathname, { locale: newLocale });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-paper backdrop-blur-sm transition-all duration-200 border-b border-b-primary/10">
       <div className="w-full md:h-32 h-20 flex items-end md:items-center justify-between px-10 md:px-12 xl:px-[7.5rem] flex-row-reverse md:flex-row">
+        
         {/* --- LOGO --- */}
         <Link
           href="/"
@@ -29,7 +46,7 @@ export default function Header() {
         >
           <Image
             src="/images/paturel-logo-dark-blue.svg"
-            alt="Paturel Notaires"
+            alt={t("a11y.logo_alt")}
             width={162}
             height={115}
             className="w-full h-auto object-contain object-right md:object-left"
@@ -42,7 +59,7 @@ export default function Header() {
           {/* BLOC LANGUES */}
           <div className="flex items-center gap-2 text-sm tracking-[0.175rem]">
             <button
-              onClick={() => setActiveLang("FR")}
+              onClick={() => switchLanguage("fr")}
               className="cursor-pointer relative group flex flex-col items-center"
             >
               <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">
@@ -50,14 +67,14 @@ export default function Header() {
               </span>
               <span
                 className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${
-                  activeLang === "FR" ? "opacity-0" : "opacity-100"
+                  locale === "fr" ? "opacity-0" : "opacity-100"
                 }`}
               >
                 FR
               </span>
               <span
                 className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${
-                  activeLang === "FR" ? "opacity-100" : "opacity-0"
+                  locale === "fr" ? "opacity-100" : "opacity-0"
                 }`}
               >
                 FR
@@ -65,7 +82,7 @@ export default function Header() {
             </button>
             <span className="text-indigo relative top-[-0.5px]">|</span>
             <button
-              onClick={() => setActiveLang("EN")}
+              onClick={() => switchLanguage("en")}
               className="cursor-pointer relative group flex flex-col items-center"
             >
               <span className="invisible font-bold h-0 overflow-hidden" aria-hidden="true">
@@ -73,14 +90,14 @@ export default function Header() {
               </span>
               <span
                 className={`absolute inset-0 transition-opacity duration-300 ease-in-out font-normal text-primary group-hover:text-[#352397] ${
-                  activeLang === "EN" ? "opacity-0" : "opacity-100"
+                  locale === "en" ? "opacity-0" : "opacity-100"
                 }`}
               >
                 EN
               </span>
               <span
                 className={`transition-opacity duration-300 ease-in-out font-bold text-[#352397] ${
-                  activeLang === "EN" ? "opacity-100" : "opacity-0"
+                  locale === "en" ? "opacity-100" : "opacity-0"
                 }`}
               >
                 EN
@@ -90,42 +107,47 @@ export default function Header() {
 
           {/* BLOC LIENS DESKTOP */}
           <ul className="flex items-baseline gap-[1.875rem]">
-            {navLinks.map((link) => (
-              <li key={link.name} className="relative group">
-                <Link
-                  href={link.href}
-                  onClick={() => setActiveLink(link.name)}
-                  className="block text-sm uppercase tracking-[0.175rem] text-center relative"
-                >
-                  <span
-                    className="invisible font-bold h-0 overflow-hidden block"
-                    aria-hidden="true"
+            {navLinks.map((link) => {
+              const linkLabel = t(`nav.${link.key}`);
+              const isActive = activeLink === link.key;
+
+              return (
+                <li key={link.key} className="relative group">
+                  <Link
+                    href={link.href}
+                    onClick={() => setActiveLink(link.key)}
+                    className="block text-sm uppercase tracking-[0.175rem] text-center relative"
                   >
-                    {link.name}
-                  </span>
-                  <span
-                    className={`absolute inset-0 flex items-center justify-center font-normal text-primary group-hover:text-[#352397] transition-opacity duration-300 ease-in-out ${
-                      activeLink === link.name ? "opacity-0" : "opacity-100"
-                    }`}
-                  >
-                    {link.name}
-                  </span>
-                  <span
-                    className={`flex items-center justify-center font-bold text-[#352397] transition-opacity duration-300 ease-in-out ${
-                      activeLink === link.name ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {link.name}
-                  </span>
-                </Link>
-                {activeLink === link.name && (
-                  <motion.div
-                    layoutId="underline"
-                    className="absolute -bottom-2 left-0 right-0 h-[4px] bg-[#352397]"
-                  />
-                )}
-              </li>
-            ))}
+                    <span
+                      className="invisible font-bold h-0 overflow-hidden block"
+                      aria-hidden="true"
+                    >
+                      {linkLabel}
+                    </span>
+                    <span
+                      className={`absolute inset-0 flex items-center justify-center font-normal text-primary group-hover:text-[#352397] transition-opacity duration-300 ease-in-out ${
+                        isActive ? "opacity-0" : "opacity-100"
+                      }`}
+                    >
+                      {linkLabel}
+                    </span>
+                    <span
+                      className={`flex items-center justify-center font-bold text-[#352397] transition-opacity duration-300 ease-in-out ${
+                        isActive ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      {linkLabel}
+                    </span>
+                  </Link>
+                  {isActive && (
+                    <motion.div
+                      layoutId="underline"
+                      className="absolute -bottom-2 left-0 right-0 h-[4px] bg-[#352397]"
+                    />
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -133,7 +155,7 @@ export default function Header() {
         <button
           className="md:hidden pb-5 left-4"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
+          aria-label={isOpen ? t("a11y.menu_close") : t("a11y.menu_open")}
         >
           <Image
             src={isOpen ? "/images/cross.svg" : "/images/burger.svg"}
@@ -156,48 +178,53 @@ export default function Header() {
           >
             {/* Haut : liens + langues */}
             <div className="flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative">
-                  <Link
-                    href={link.href}
-                    onClick={() => {
-                      setActiveLink(link.name);
-                      setIsOpen(false);
-                    }}
-                    className={`text-sm tracking-[0.175rem] uppercase transition-colors ${
-                      activeLink === link.name
-                        ? "font-bold text-[#352397]"
-                        : "font-normal text-primary"
-                    }`}
-                  >
-                    <span className="relative inline-block">
-                      {link.name}
+              {navLinks.map((link) => {
+                const linkLabel = t(`nav.${link.key}`);
+                const isActive = activeLink === link.key;
 
-                      {activeLink === link.name && (
-                        <motion.div
-                          layoutId="mobile-underline"
-                          className="absolute -bottom-2 left-0 w-full h-[4px] bg-[#352397]"
-                        />
-                      )}
-                    </span>
-                  </Link>
-                </div>
-              ))}
+                return (
+                  <div key={link.key} className="relative">
+                    <Link
+                      href={link.href}
+                      onClick={() => {
+                        setActiveLink(link.key);
+                        setIsOpen(false);
+                      }}
+                      className={`text-sm tracking-[0.175rem] uppercase transition-colors ${
+                        isActive
+                          ? "font-bold text-[#352397]"
+                          : "font-normal text-primary"
+                      }`}
+                    >
+                      <span className="relative inline-block">
+                        {linkLabel}
+
+                        {isActive && (
+                          <motion.div
+                            layoutId="mobile-underline"
+                            className="absolute -bottom-2 left-0 w-full h-[4px] bg-[#352397]"
+                          />
+                        )}
+                      </span>
+                    </Link>
+                  </div>
+                );
+              })}
 
               <div className="flex gap-2 pt-4 border-t border-gray-100 w-16 justify-center text-sm tracking-widest">
                 <button
-                  onClick={() => setActiveLang("FR")}
+                  onClick={() => switchLanguage("fr")}
                   className={
-                    activeLang === "FR" ? "font-bold text-[#352397]" : "text-primary"
+                    locale === "fr" ? "font-bold text-[#352397]" : "text-primary"
                   }
                 >
                   FR
                 </button>
                 <span className="text-primary/30">|</span>
                 <button
-                  onClick={() => setActiveLang("EN")}
+                  onClick={() => switchLanguage("en")}
                   className={
-                    activeLang === "EN" ? "font-bold text-[#352397]" : "text-primary"
+                    locale === "en" ? "font-bold text-[#352397]" : "text-primary"
                   }
                 >
                   EN
@@ -208,18 +235,20 @@ export default function Header() {
             {/* Bas : ligne + adresse + LinkedIn */}
             <div className="mt-10 pt-6 border-t border-primary/40 flex flex-col gap-6">
               <div className="text-xs tracking-[0.18em] text-primary">
-                <p>3 PLACE ANDRÉ MALRAUX</p>
-                <p>78100 SAINT-GERMAIN-EN-LAYE</p>
-                <p>01 88 85 77 77</p>
+                <p>{t("mobile.address_line1")}</p>
+                <p>{t("mobile.address_line2")}</p>
+                <p>{t("mobile.phone")}</p>
               </div>
 
-              <Link
+              {/* Note: Pour les liens externes comme LinkedIn, on utilise le Link standard de Next.js ou une balise <a> */}
+              <a
                 href="https://linkedin.com"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 bg-[#352397] rounded-full text-white hover:bg-[#24165c] transition-all duration-200 hover:scale-[1.05]"
               >
                 <FaLinkedinIn />
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

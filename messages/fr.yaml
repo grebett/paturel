@@ -1,0 +1,58 @@
+Header:
+  nav:
+    etude: "ÉTUDE"
+    expertise: "EXPERTISE"
+    equipe: "ÉQUIPE"
+    contact: "CONTACT / RECRUTEMENT"
+  mobile:
+    address_line1: "3 PLACE ANDRÉ MALRAUX"
+    address_line2: "78100 SAINT-GERMAIN-EN-LAYE"
+    phone: "01 88 85 77 77"
+  a11y:
+    logo_alt: "Paturel Notaires"
+    menu_open: "Ouvrir le menu"
+    menu_close: "Fermer le menu"
+
+Hero:
+  title: "Étude Notariale Paturel"
+  subtitle: "À vos côtés pour les moments importants de votre vie."
+  cta: "Prendre rendez-vous"
+
+About:
+  title: "L'Étude"
+  content: "Installée à Saint-Germain-en-Laye..."
+
+Expertise:
+  title: "Nos Domaines d'Intervention"
+  family: "Droit de la famille"
+  realestate: "Immobilier"
+  business: "Droit des affaires"
+  heritage: "Gestion de patrimoine"
+
+Team:
+  title: "Notre Équipe"
+  notaries: "Les Notaires"
+  collaborators: "Les Collaborateurs"
+
+Contact:
+  title: "Contactez-nous"
+  form:
+    firstname: "Prénom"
+    lastname: "Nom"
+    email: "Email"
+    phone: "Téléphone"
+    subject: "Objet de la demande"
+    message: "Message"
+    submit: "Envoyer"
+    success: "Message envoyé avec succès."
+    error: "Une erreur est survenue."
+  subjects:
+    info: "Demande d'information"
+    rdv: "Prise de rendez-vous"
+    act: "Question relative à un acte"
+    job: "Candidature & recrutement"
+    other: "Autre demande"
+
+Footer:
+  address: "123 Rue de la République, 78100 Saint-Germain-en-Laye"
+  legal: "Mentions légales"
