@@ -14,13 +14,31 @@ Header:
     menu_close: "Close menu"
 
 Hero:
-  title: "Étude Notariale Paturel"
-  subtitle: "À vos côtés pour les moments importants de votre vie."
-  cta: "Prendre rendez-vous"
+  title: |
+    Our ambition :
+    to be partners
+    to our clients.
+  a11y:
+    bg_alt: "Paturel Notary Office"
+    stamp_alt: "Paturel Stamp"
 
 About:
-  title: "L'Étude"
-  content: "Installée à Saint-Germain-en-Laye..."
+  title: "The Office"
+  intro:
+    p1: "Paturel Notaires supports its clients with rigor, loyalty, and availability."
+    p2: "Founded on values of excellence and trust, we place the quality of advice at the heart of our practice."
+    p3: "Our ambition: to be true partners, committed to the success of every project."
+  vision:
+    p1: "Paturel Notaires was born from a shared vision of the profession, based on strong values: quality, rigor, loyalty, and high availability."
+    p2: "We dedicate these principles to a single objective: offering our clients excellent support, consistent with our skills, know-how, and experience in real estate."
+    p3: "Our structure dedicated to real estate allows us to best meet the challenges of a constantly evolving environment, notably by relying on new technologies, developing a resolutely international approach, and working closely with a network of expert partners."
+  details:
+    p1: "Our practice relies on support at every stage of our clients' projects, anticipating their needs and constraints while proposing strategic advice. Whether setting up and updating a data room, preparing a Vendor Due Diligence in a 'ready to sell' approach, securing the sale of a real estate asset or a company, or preparing the signing of financing, our approach always aims to optimize the success of operations at the best cost."
+    p2: "From our experience developed alongside institutional players, particularly foreign investment funds in commercial real estate, we have developed high standards and a culture of rigor alongside our clients."
+    p3: "We also place our expertise at the service of our clients' personal and patrimonial projects."
+    p4: "Our ambition is clear: to build a sustainable partnership relationship, based on trust, proximity, and excellence."
+  a11y:
+    office_alt: "Interior of Paturel Notaires office"
 
 Expertise:
   title: "Nos Domaines d'Intervention"

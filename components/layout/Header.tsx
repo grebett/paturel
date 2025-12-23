@@ -28,10 +28,7 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState("etude");
 
   const switchLanguage = (newLocale: string) => {
-    // C'est ici que la magie opère.
-    // On dit juste : "Reste sur le même chemin (pathname), mais change la locale".
-    // next-intl va automatiquement rediriger vers '/' (si fr) ou '/en' (si en).
-    router.replace(pathname, { locale: newLocale });
+    router.replace(pathname, { locale: newLocale, scroll: false });
   };
 
   return (

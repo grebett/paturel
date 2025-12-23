@@ -14,13 +14,31 @@ Header:
     menu_close: "Fermer le menu"
 
 Hero:
-  title: "Étude Notariale Paturel"
-  subtitle: "À vos côtés pour les moments importants de votre vie."
-  cta: "Prendre rendez-vous"
+  title: |
+    Notre ambition :
+    être les partenaires
+    de nos clients.
+  a11y:
+    bg_alt: "Bureau Paturel Notaire"
+    stamp_alt: "Sceau Paturel"
 
 About:
-  title: "L'Étude"
-  content: "Installée à Saint-Germain-en-Laye..."
+  title: "L’étude"
+  intro:
+    p1: "L’office notarial Paturel Notaires accompagne ses clients avec rigueur, loyauté et disponibilité."
+    p2: "Fondé sur des valeurs d’excellence et de confiance, nous plaçons la qualité du conseil au cœur de notre pratique."
+    p3: "Notre ambition : être de véritables partenaires, engagés dans la réussite de chaque projet."
+  vision:
+    p1: "L’office notarial Paturel Notaires est né d’une vision commune du métier, fondée sur des valeurs fortes : qualité, rigueur, loyauté et grande disponibilité."
+    p2: "Nous mettons ces principes au service d’un objectif unique : offrir à nos clients un accompagnement d’excellence, en cohérence avec nos compétences, nos savoir-faire et notre expérience en immobilier."
+    p3: "Notre structure dédiée à l’immobilier nous permet de répondre au mieux aux défis d’un environnement en constante évolution, en nous appuyant notamment sur les nouvelles technologies, en développant une approche résolument internationale et en travaillant en étroite collaboration avec un réseau d’experts partenaires."
+  details:
+    p1: "Notre pratique s’appuie sur un accompagnement à chaque étape des projets de nos clients, en anticipant leurs besoins et leurs contraintes et en proposant des conseils stratégiques. Qu’il s’agisse de constituer et actualiser une data-room, préparer une Vendor Due Diligence dans une démarche ready to sell, de sécuriser la cession d’un actif immobilier ou d’une société, de préparer la signature d’un financement, notre approche vise toujours à optimiser la réussite des opérations au meilleur coût."
+    p2: "De notre expérience, développée aux côtés d’acteurs institutionnels et plus particulièrement de fonds d’investissement étrangers de l’immobilier tertiaire, nous avons développé des standards élevés et une culture de la rigueur aux côtés de nos clients."
+    p3: "Nous mettons également notre savoir-faire au service des projets personnels et patrimoniaux de nos clients."
+    p4: "Notre ambition est claire : construire une relation de partenariat durable, fondée sur la confiance, la proximité et l’excellence."
+  a11y:
+    office_alt: "Intérieur de l'étude Paturel Notaires"
 
 Expertise:
   title: "Nos Domaines d'Intervention"

@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section
       id="hero"
@@ -13,7 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.jpg"
-          alt="Bureau Paturel Notaire"
+          alt={t("a11y.bg_alt")}
           fill
           className="object-cover object-center"
           priority
@@ -33,11 +36,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-[2rem] md:text-[2.3rem] xl:text-[3rem] italic font-semibold tracking-[0.0275rem] text-terracotta max-w-4xl [font-feature-settings:'calt','liga'] md:leading-[2.9rem] xl:leading-[4rem]"
+          className="font-serif whitespace-pre-line text-[2rem] md:text-[2.3rem] xl:text-[3rem] italic font-semibold tracking-[0.0275rem] text-terracotta max-w-4xl [font-feature-settings:'calt','liga'] md:leading-[2.9rem] xl:leading-[4rem]"
         >
-          Notre ambition :<br />
-          être les partenaires<br />
-          de nos clients.
+          {t("title")}
         </motion.h1>
 
         <motion.div
@@ -48,7 +49,7 @@ export default function Hero() {
         >
           <Image
             src="/images/stamp.svg"
-            alt="Sceau Paturel"
+            alt={t("a11y.stamp_alt")}
             width={140}
             height={140}
             className="w-full h-auto opacity-100"
