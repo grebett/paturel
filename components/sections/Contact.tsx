@@ -173,11 +173,11 @@ export default function Contact() {
                 <option value="" disabled>
                   Choisir le motif de votre demande
                 </option>
-                <option value="information">Demande d&apos;information</option>
-                <option value="rendez-vous">Prise de rendez-vous</option>
-                <option value="acte">Question relative à un dossier / acte</option>
-                <option value="recrutement">Candidature / recrutement</option>
-                <option value="autre">Autre demande</option>
+                <option value="Demande d'information">Demande d&apos;information</option>
+                <option value="Prise de rendez-vous">Prise de rendez-vous</option>
+                <option value="Question relative à un acte">Question relative à un dossier / acte</option>
+                <option value="Candidature et recrutement">Candidature / recrutement</option>
+                <option value="Autre demande">Autre demande</option>
               </select>
             </div>
 

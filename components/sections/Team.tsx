@@ -14,7 +14,7 @@ const teamMembers = [
       "Marc conseille également une clientèle privée et des fondations dans leurs différents projets immobiliers."
     ],
     language: "Marc travaille aussi bien en anglais qu’en français.",
-    linkedin: "https://www.linkedin.com"
+    linkedin: "https://www.linkedin.com/"
   },
   {
     name: "Florence Pignal",

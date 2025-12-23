@@ -1,17 +1,14 @@
+export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-
-// Les variables sensibles dans .env.local
-// SMTP_HOST=...
-// SMTP_PORT=587
-// SMTP_USER=...
-// SMTP_PASS=...
+import { mailText, mjmlTemplate, mailSubject } from "./template";
+import { renderMjml } from "@/lib/mailer/renderMjml";
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
 
-        const { firstname, lastname, email, phone, message } = body;
+        const { firstname, lastname, email, phone, subject, message } = body;
 
         if (!firstname || !lastname || !email || !message) {
             return NextResponse.json(
@@ -22,39 +19,28 @@ export async function POST(request: Request) {
 
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT ?? 587),
-            secure: false, // true si port 465
+            port: parseInt(process.env.SMTP_PORT!, 10) ?? 587,
+            secure: false,
             auth: {
                 user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
+                pass: process.env.SMTP_PASSWORD,
+            }
         });
 
-        const mailText = `
-Nouveau message depuis le site Paturel Notaires :
+        const html = renderMjml(mjmlTemplate({ firstname, lastname, email, phone, subject, message }));
+        const text = mailText({ firstname, lastname, email, phone, subject, message });
+        
 
-Prénom : ${firstname}
-Nom : ${lastname}
-Email : ${email}
-Téléphone : ${phone || "Non renseigné"}
+        console.log(html, text);
 
-Message :
-${message}
-    `.trim();
-
-// temp
-console.log('📩', mailText)
-    return NextResponse.json(
-            { ok: true, data: "Perfect ça roule" },
-            { status: 200 }
-        );
-
+        // return NextResponse.json({ ok: true });
         await transporter.sendMail({
-            from: `"Site Paturel Notaires" <${process.env.SMTP_FROM ?? process.env.SMTP_USER}>`,
-            to: "accueil@paturel.notaires.fr",
+            from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM}>`,
+            to: process.env.MAIL_TO,
             replyTo: email,
-            subject: `Nouveau message de ${firstname} ${lastname}`,
-            text: mailText,
+            subject: mailSubject({ firstname, lastname, subject }),
+            text,
+            html,
         });
 
         return NextResponse.json({ ok: true });
