@@ -17,7 +17,7 @@ const competencesList = [
 ];
 
 const linksList = [
-  { key: "tarifs", href: "#" }, // Placeholder PDF
+  { key: "tarifs", href: "./docs/Paturel_Tarifs et remises tarifaires_2025.pdf", target: "_blank" },
   { key: "contact", href: "#contact" },
   { key: "recrutement", href: "#contact" },
   { key: "etude", href: "#etude" },
@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="w-full px-10 md:px-20 xl:px-[7.5rem]">
         {/* --- PARTIE HAUTE : GRILLE 2 COLONNES --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-center lg:items-start">
-          
+
           {/* COLONNE 1 : Logo Paturel */}
           <div className="lg:col-span-5 flex justify-center lg:justify-center h-full min-w-0">
             <Link href="/" className="block">
@@ -60,7 +60,7 @@ export default function Footer() {
 
           {/* COLONNE 2 : Bloc contenu */}
           <div className="lg:col-span-7 flex flex-col w-full min-w-0">
-            
+
             {/* Adresse + LinkedIn */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6 min-w-0">
               <address className="not-italic text-m font-light leading-relaxed font-sans break-words">
@@ -87,7 +87,7 @@ export default function Footer() {
 
             {/* Colonnes de liens */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-w-0">
-              
+
               {/* Compétences */}
               <div className="flex flex-col min-w-0">
                 <ul className="min-w-0">
@@ -114,6 +114,7 @@ export default function Footer() {
                     <li key={link.key} className="min-w-0">
                       <Link
                         href={link.href}
+                        {...link.target ? { target: link.target } : null}
                         className="text-xs leading-5 tracking-[0.12em] md:tracking-widest font-medium hover:text-white/70 transition-colors uppercase break-words"
                       >
                         {t(`nav.${link.key}`)}
@@ -126,18 +127,16 @@ export default function Footer() {
                 <div className="font-bold text-sm tracking-widest shrink-0 flex items-center">
                   <button
                     onClick={() => switchLanguage("fr")}
-                    className={`hover:opacity-100 transition-opacity ${
-                      locale === "fr" ? "opacity-100" : "opacity-50 font-light"
-                    }`}
+                    className={`hover:opacity-100 transition-opacity ${locale === "fr" ? "opacity-100" : "opacity-50 font-light"
+                      }`}
                   >
                     FR
                   </button>
                   <span className="mx-1 opacity-50 font-light">|</span>
                   <button
                     onClick={() => switchLanguage("en")}
-                    className={`hover:opacity-100 transition-opacity ${
-                      locale === "en" ? "opacity-100" : "opacity-50 font-light"
-                    }`}
+                    className={`hover:opacity-100 transition-opacity ${locale === "en" ? "opacity-100" : "opacity-50 font-light"
+                      }`}
                   >
                     EN
                   </button>
@@ -164,12 +163,21 @@ export default function Footer() {
         {/* Bas footer */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/80 font-light tracking-wide min-w-0">
           {/* Mentions → 1er en mobile, 2e en desktop */}
-          <div className="flex flex-col items-center md:items-end gap-1 order-1 md:order-2 min-w-0">
+          <div className="flex flex-row items-center md:items-end gap-1 order-1 md:order-2 min-w-0">
             <Link
-              href="#"
+              href={`./docs/${t("legal.legal_notice_link")}`}
+              target="_blank"
               className="hover:text-white transition-colors text-center md:text-right break-words"
             >
-              {t("legal.mentions")}
+              {t("legal.legal_notice")}
+            </Link>
+            —
+            <Link
+              href={`./docs/${t("legal.privacy_policy_link")}`}
+              target="_blank"
+              className="hover:text-white transition-colors text-center md:text-right break-words"
+            >
+              {t("legal.privacy_policy")}
             </Link>
           </div>
 

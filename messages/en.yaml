@@ -131,9 +131,12 @@ Footer:
     etude: "THE OFFICE"
     equipe: "TEAM"
   legal:
-    mentions: "Legal Notice — Privacy Policy"
     copyright: "© Paturel Notaires — All rights reserved"
     disclaimer: "This site does not use cookies and does not perform audience measurement."
+    legal_notice: "Legal Notice"
+    privacy_policy: "Privacy Policy"
+    legal_notice_link: "Paturel_legal-notice.pdf"
+    privacy_policy_link: "Paturel_privacy-policy.pdf"
   a11y:
     logo_alt: "Paturel Notaries"
     notaires_logo_alt: "Notaires de France Logo"

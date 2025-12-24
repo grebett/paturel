@@ -132,9 +132,12 @@ Footer:
     etude: "ÉTUDE"
     equipe: "ÉQUIPE"
   legal:
-    mentions: "Mentions légales — Politique de confidentialité"
     copyright: "© Paturel Notaires — Tous droits réservés"
     disclaimer: "Ce site ne dépose aucun cookie et ne réalise aucune mesure d’audience."
+    legal_notice: "Mentions légales"
+    privacy_policy: "Politique de confidentialité"
+    legal_notice_link: "Paturel_mentions-légales.pdf"
+    privacy_policy_link: "Paturel_politique-de-confidentialité.pdf"
   a11y:
     logo_alt: "Paturel Notaires"
     notaires_logo_alt: "Logo Notaires de France"
