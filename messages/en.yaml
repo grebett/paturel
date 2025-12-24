@@ -1,3 +1,7 @@
+Metadata:
+  title: "Paturel Notaires | Notary Office in Saint-Germain-en-Laye"
+  description: "Paturel Notaires supports companies and private clients: Real Estate, Corporate Services, Financing, and Public Sector. Excellence and rigor based in Saint-Germain-en-Laye."
+
 Header:
   nav:
     etude: "THE OFFICE"
@@ -79,7 +83,7 @@ Team:
     florence:
       name: "Florence Pignal"
       bio: "Florence specializes in real estate law, with nearly ten years of experience at top-tier notarial firms, including Wargny Katz. She focuses on corporate real estate—covering investment, development, and planning—and also advises private clients and foundations on their real estate projects."
-      language: "Marc is fluent in both English and French."
+      language: "Florence is fluent in both English and French."
 
 Contact:
   title: "Contact &<br></br>Recruitment"

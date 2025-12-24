@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
+
 import { Playfair_Display, Figtree } from "next/font/google";
 import "../globals.css";
 
@@ -22,11 +23,30 @@ const figtree = Figtree({
 });
 
 
-export const metadata: Metadata = {
-  title: "Paturel Notaires",
-  description: "Étude notariale à Saint-Germain-en-Laye",
-};
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  
+  // On récupère les traductions spécifiques au namespace "Metadata"
+  const t = await getTranslations({ locale, namespace: 'Metadata' });
 
+  return {
+    title: t('title'),
+    description: t('description'),
+    // Tu peux aussi ajouter des champs openGraph pour le partage social
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: 'https://www.paturel-notaires.fr', // Mettre la vraie URL
+      siteName: 'Paturel Notaires',
+      locale: locale,
+      type: 'website',
+    },
+  };
+}
 export default async function RootLayout({
   children,
   params
