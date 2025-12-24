@@ -202,7 +202,7 @@ export default function Contact() {
             </div>
 
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <span className="text-xs text-body/70 order-1 md:order-2 -mt-7">
+              <span className="text-xs text-body/70 order-1 md:order-2 md:-mt-7">
                 {t("form.mandatory")}
               </span>
 
