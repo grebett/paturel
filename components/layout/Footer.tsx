@@ -7,7 +7,6 @@ import { useTranslations, useLocale } from "next-intl";
 // --- Imports personnalisés ---
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
-// On définit les listes avec des clés de traduction (key) et les cibles (href/slug)
 const competencesList = [
   { key: "immobilier", slug: "immobilier" },
   { key: "corporate", slug: "corporate" },
@@ -40,29 +39,45 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#1E1343] text-white md:pt-24 pb-8 overflow-x-hidden">
-      {/* Container global aligné (7.5rem) */}
-      <div className="w-full px-10 md:px-20 xl:px-[7.5rem]">
+      {/* 
+         CORRECTION 1 : Ajustement du padding.
+         md:px-12 au lieu de px-20 pour laisser plus de place au contenu avant le XL 
+      */}
+      <div className="w-full px-10 md:px-12 xl:px-[7.5rem]">
+        
         {/* --- PARTIE HAUTE : GRILLE 2 COLONNES --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16 items-center lg:items-start">
+        {/* 
+           CORRECTION 2 : Gestion du gap.
+           lg:gap-12 (plus serré sur laptop) -> xl:gap-24 (large sur grand écran)
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-24 mb-16 items-center lg:items-start">
 
-          {/* COLONNE 1 : Logo Paturel */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-center h-full min-w-0">
+          {/* 
+             CORRECTION 3 : Répartition des colonnes.
+             lg:col-span-4 (au lieu de 5) pour le logo. Il n'a pas besoin de tant de place.
+          */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-center h-full min-w-0">
             <Link href="/" className="block">
               <Image
                 src="/images/stamp.svg"
                 alt={t("a11y.stamp_alt")}
                 width={220}
                 height={150}
-                className="md:w-60 lg:w-50 h-auto mt-15"
+                // w-50 n'existe pas par défaut en Tailwind (c'est w-48 ou w-52), j'ai mis w-48 (12rem)
+                className="w-48 md:w-56 h-auto mt-15"
               />
             </Link>
           </div>
 
-          {/* COLONNE 2 : Bloc contenu */}
-          <div className="lg:col-span-7 flex flex-col w-full min-w-0">
+          {/* 
+             CORRECTION 4 : Plus d'espace pour le contenu.
+             lg:col-span-8 (au lieu de 7). 
+          */}
+          <div className="lg:col-span-8 flex flex-col w-full min-w-0">
 
             {/* Adresse + LinkedIn */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6 min-w-0">
+            {/* Ajout de flex-wrap pour éviter que le bouton sorte si l'adresse est longue */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-6 min-w-0 flex-wrap">
               <address className="not-italic text-m font-light leading-relaxed font-sans break-words">
                 {t("address.line1")}
                 <br />
@@ -86,7 +101,8 @@ export default function Footer() {
             <div className="w-full h-1.5 bg-white mb-10" />
 
             {/* Colonnes de liens */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-w-0">
+            {/* CORRECTION 5 : gap-6 sur tablette/laptop, gap-10 sur très grand écran */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-10 min-w-0">
 
               {/* Compétences */}
               <div className="flex flex-col min-w-0">
@@ -162,26 +178,26 @@ export default function Footer() {
 
         {/* Bas footer */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/80 font-light tracking-wide min-w-0">
-          {/* Mentions → 1er en mobile, 2e en desktop */}
-          <div className="flex flex-row items-center md:items-end gap-1 order-1 md:order-2 min-w-0">
+          {/* Mentions */}
+          <div className="flex flex-row items-center md:items-end gap-1 order-1 md:order-2 min-w-0 text-center md:text-right flex-wrap justify-center md:justify-end">
             <Link
               href={`./docs/${t("legal.legal_notice_link")}`}
               target="_blank"
-              className="hover:text-white transition-colors text-center md:text-right break-words"
+              className="hover:text-white transition-colors break-words"
             >
               {t("legal.legal_notice")}
             </Link>
-            —
+            <span className="hidden md:inline">—</span>
             <Link
               href={`./docs/${t("legal.privacy_policy_link")}`}
               target="_blank"
-              className="hover:text-white transition-colors text-center md:text-right break-words"
+              className="hover:text-white transition-colors break-words"
             >
               {t("legal.privacy_policy")}
             </Link>
           </div>
 
-          {/* Copyright → 2e en mobile, 1er en desktop */}
+          {/* Copyright */}
           <div className="flex flex-col items-center md:items-start gap-1 order-2 md:order-1 min-w-0">
             <span className="break-words">
               {t("legal.copyright")}

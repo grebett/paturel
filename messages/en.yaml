@@ -15,9 +15,9 @@ Header:
 
 Hero:
   title: |
-    Our ambition :
-    to be partners
-    to our clients.
+    Our ambition :
+    to be our clients’
+    trusted partners
   a11y:
     bg_alt: "Paturel Notary Office"
     stamp_alt: "Paturel Stamp"
@@ -29,14 +29,14 @@ About:
     p2: "Founded on values of excellence and trust, we place the quality of advice at the heart of our practice."
     p3: "Our ambition: to be true partners, committed to the success of every project."
   vision:
-    p1: "Paturel Notaires was born from a shared vision of the profession, based on strong values: quality, rigor, loyalty, and high availability."
-    p2: "We dedicate these principles to a single objective: offering our clients excellent support, consistent with our skills, know-how, and experience in real estate."
-    p3: "Our structure dedicated to real estate allows us to best meet the challenges of a constantly evolving environment, notably by relying on new technologies, developing a resolutely international approach, and working closely with a network of expert partners."
+    p1: "The notarial office Paturel Notaire was founded on a shared vision of the profession of notary, based on the values of rigor, humility, responsiveness, and a constant commitment to the highest standard of quality."
+    p2: "Our ambition is to offer our clients services that perfectly reflect and highlight our expertise, know-how, and experience, specifically in the field of commercial real estate."
+    p3: ""
   details:
-    p1: "Our practice relies on support at every stage of our clients' projects, anticipating their needs and constraints while proposing strategic advice. Whether setting up and updating a data room, preparing a Vendor Due Diligence in a 'ready to sell' approach, securing the sale of a real estate asset or a company, or preparing the signing of financing, our approach always aims to optimize the success of operations at the best cost."
-    p2: "From our experience developed alongside institutional players, particularly foreign investment funds in commercial real estate, we have developed high standards and a culture of rigor alongside our clients."
-    p3: "We also place our expertise at the service of our clients' personal and patrimonial projects."
-    p4: "Our ambition is clear: to build a sustainable partnership relationship, based on trust, proximity, and excellence."
+    p1: "With an agile and modern approach, we anticipate and address the challenges of today’s world by integrating new technologies, adopting a resolutely   international approach, and collaborating closely with a network of trusted expert partners."
+    p2: "Our ambition is clear: to be our clients’ trusted advisors, combining notarial expertise and a strategic vision."
+    p3: ""
+    p4: ""
   a11y:
     office_alt: "Interior of Paturel Notaires office"
 
@@ -47,43 +47,43 @@ Expertise:
       id: "1"
       slug: "immobilier"
       title: "Real Estate"
-      desc: "The office intervenes in all real estate projects, whether acquisitions or disposals, and for all types of assets (hospitality, logistics, offices, shopping centers, retail premises, industrial sites/factories, student residences, housing), in both French and English.\n\nThe office has developed specific expertise in real estate, particularly in commercial real estate, with partners having advised a clientele of investment funds, property companies, and major users for over twenty years."
+      desc: "We assist our clients in all real estate projects, whether sales or acquisitions, across a wide range of assets classes (i.e offices, business premises, logistics, hotel industry, retail premises, clinics, student residences, housing, etc.).\n\nThe firm has developed specific expertise in real estate, especially in commercial properties, having advised investment funds, real estate companies, and major corporate users for over twenty years." 
     item2:
       id: "2"
       slug: "corporate"
       title: "Corporate Services"
-      desc: "The office supports companies in their restructuring projects, particularly those involving underlying real estate assets within the framework of universal transfers of assets, partial contributions of assets, whether drafting deeds or establishing real estate audit reports necessary for structuring."
+      desc: "We assist companies in their restructuring projects, particularly those involving real estate assets. Our expertise encompasses universal asset transfers and partial asset contributions, whether drafting and negotiating the necessary notarized deeds, or drawing up due diligence reports required for structuring."
     item3:
       id: "3"
       slug: "financements-immobiliers"
       title: "Real Estate Financing"
-      desc: "The office supports credit institutions and/or borrowers in setting up their financing and granting related securities, whether for personal or professional financing."
+      desc: "We advise both lending institutions and borrowers on the financing of their real estate transactions. We focus on structuring financing, negotiating loan documents and securing and formalizing the related security package."
     item4:
       id: "4"
       slug: "promotion-amenagement"
-      title: "Development / Public Sector"
-      desc: "The office supports developers, public authorities, planners, and investors in the development of land projects by participating in both the acquisition/sale of land necessary for the development of these projects and in the structuring and marketing of these projects."
+      title: "Development & Public Sector"
+      desc: "We provide guidance for the development projects of our clients in zone and property development sectors by structuring land development operations, land acquisition, securing property development agreements and legal project structuring and off-plan sales."
     item5:
       id: "5"
       slug: "clientele-privee"
       title: "Private Clients"
-      desc: "The office supports its private clients in the context of their acquisitions / disposals."
+      desc: "We advise our private clients throughout their real estate transactions in France, whether acquisitions or sales."
 
 Team:
   title: "Our Team"
   members:
     marc:
       name: "Marc Paturel"
-      bio: "With over twenty-five years of experience, including fifteen as a Partner Notary at Wargny Katz, specializing in corporate and institutional real estate, Marc advises a clientele of investors (notably foreign), developers, major users, and credit institutions for all types of corporate real estate investment operations.\n\nMarc also advises private clients and foundations on their various real estate projects."
-      language: "Marc works equally well in English and French."
+      bio: "With over 25 years of experience—including more than 15 as a partner at Wargny Katz—Marc specializes in corporate and institutional real estate. He advises a diverse clientele, such as investment funds, real estate companies, developers, major corporate users, and financial institutions, on all aspects of corporate real estate investment transactions. Additionally, Marc assists private clients and foundations with their real estate projects."
+      language: "Marc is fluent in both English and French."
     florence:
       name: "Florence Pignal"
-      bio: "Specializing in real estate law, and with about ten years of experience in leading offices, including seven working in tandem with Marc Paturel at Wargny Katz, Florence operates in the fields of corporate real estate (investment, development, planning) and also advises private clients and foundations on their various real estate projects."
-      language: "Florence works equally well in English and French."
+      bio: "Florence specializes in real estate law, with nearly ten years of experience at top-tier notarial firms, including Wargny Katz. She focuses on corporate real estate—covering investment, development, and planning—and also advises private clients and foundations on their real estate projects."
+      language: "Marc is fluent in both English and French."
 
 Contact:
   title: "Contact &<br></br>Recruitment"
-  intro: "We are at your disposal for any information request or question. You can address them to us via the form opposite.\n\nPaturel Notaires is constantly looking for new talents. Do you wish to join us? Send us your application using the contact form opposite."
+  intro: "We are at your disposal for any information request or question. You can address them to us via the form opposite.\n\nThe Paturel Notaires firm is always on the lookout for new talent. Would you like to join us? Please send your application using the contact form opposite."
   form:
     firstname: "First Name*"
     firstname_ph: "Enter your first name"
