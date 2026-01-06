@@ -165,7 +165,7 @@ export default function Footer() {
                     alt={t("a11y.notaires_logo_alt")}
                     width={80}
                     height={80}
-                    className="w-14 h-auto opacity-90"
+                    className="w-22 h-auto opacity-90"
                   />
                 </div>
               </div>
